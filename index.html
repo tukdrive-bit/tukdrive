@@ -189,9 +189,8 @@
             margin-bottom: 25px;
         }
 
-        /* حاوية الخريطة التفاعلية */
+        /* حاوية الخريطة المصممة بالكامل داخل SVG موحد */
         .map-container {
-            position: relative;
             width: 100%;
             max-width: 650px;
             margin: 0 auto;
@@ -199,10 +198,10 @@
             border-radius: 16px;
             border: 1px solid rgba(255, 204, 0, 0.4);
             overflow: hidden;
-            direction: ltr !important;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
         }
 
-        .map-svg-layer {
+        .map-svg {
             width: 100%;
             height: auto;
             display: block;
@@ -210,59 +209,22 @@
 
         .route-line-bg {
             fill: none;
-            stroke: rgba(255, 204, 0, 0.3);
-            stroke-width: 3;
-            stroke-dasharray: 4 4;
+            stroke: rgba(255, 204, 0, 0.25);
+            stroke-width: 4;
+            stroke-dasharray: 6 6;
         }
 
         .route-line-animated {
             fill: none;
             stroke: #ffcc00;
-            stroke-width: 3.5;
-            stroke-dasharray: 8 8;
-            animation: moveRoute 3s linear infinite;
+            stroke-width: 4;
+            stroke-dasharray: 10 10;
+            animation: moveRoute 2s linear infinite;
         }
 
         @keyframes moveRoute {
-            0% { stroke-dashoffset: 16; }
+            0% { stroke-dashoffset: 20; }
             100% { stroke-dashoffset: 0; }
-        }
-
-        .node {
-            position: absolute;
-            z-index: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transform: translate(-50%, -50%);
-        }
-
-        .node-passenger { top: 65%; left: 85%; }
-        .node-driver { top: 35%; left: 15%; }
-
-        .node-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: #232a3b;
-            border: 2px solid #ffcc00;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            box-shadow: 0 0 12px rgba(255, 204, 0, 0.5);
-        }
-
-        .node-label {
-            margin-top: 4px;
-            background: rgba(17, 21, 30, 0.9);
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 11px;
-            font-weight: 700;
-            color: #ffcc00;
-            border: 1px solid rgba(255, 204, 0, 0.4);
-            white-space: nowrap;
         }
 
         /* Statistics Bar */
@@ -408,7 +370,7 @@
             transform: translateY(-2px);
         }
 
-        /* FAQ Accordion Section */
+        /* FAQ Section */
         .faq-section {
             margin-bottom: 30px;
         }
@@ -557,8 +519,6 @@
             header h1 { font-size: 32px; }
             .nav-links a { display: none; }
             .driver-banner { text-align: center; justify-content: center; }
-            .node-icon { width: 32px; height: 32px; font-size: 15px; }
-            .node-label { font-size: 10px; padding: 2px 6px; }
             .app-screenshot-wrapper { height: 380px; }
         }
     </style>
@@ -597,63 +557,65 @@
         <p class="subtitle" id="mapSubtitle">ربط مباشر وسريع بين الراكب والسائق عبر الخريطة الذكية</p>
 
         <div class="map-container">
-            <!-- SVG Map, Route, and Native Animated TukTuk -->
-            <svg class="map-svg-layer" viewBox="0 0 650 220" xmlns="http://www.w3.org/2000/svg">
-                <!-- مناطق الخريطة والمباني -->
-                <rect x="0" y="0" width="650" height="220" fill="#151a24"/>
-                <rect x="20" y="20" width="120" height="60" rx="8" fill="#1d2331"/>
-                <rect x="160" y="15" width="200" height="40" rx="8" fill="#1d2331"/>
-                <rect x="380" y="20" width="250" height="70" rx="8" fill="#1d2331"/>
-                <rect x="30" y="140" width="180" height="65" rx="8" fill="#1d2331"/>
-                <rect x="240" y="120" width="220" height="85" rx="8" fill="#1d2331"/>
-                <rect x="480" y="130" width="140" height="75" rx="8" fill="#1d2331"/>
+            <!-- خريطة كاملة موحدة داخل SVG بـ viewBox يضمن التطابق 100% على كافة الشاشات -->
+            <svg class="map-svg" viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+                <!-- خلفية الخريطة والمباني -->
+                <rect width="600" height="260" fill="#151a24" />
+                <rect x="20" y="20" width="160" height="70" rx="8" fill="#1e2636" />
+                <rect x="210" y="20" width="180" height="70" rx="8" fill="#1e2636" />
+                <rect x="410" y="20" width="170" height="70" rx="8" fill="#1e2636" />
                 
-                <!-- مناطق خضراء/حدائق -->
-                <path d="M 170,70 Q 210,60 230,90 T 170,110 Z" fill="#1a2f26" opacity="0.7"/>
-                <path d="M 430,25 Q 460,15 480,35 T 430,45 Z" fill="#1a2f26" opacity="0.7"/>
+                <rect x="20" y="170" width="250" height="70" rx="8" fill="#1e2636" />
+                <rect x="290" y="170" width="290" height="70" rx="8" fill="#1e2636" />
 
-                <!-- شوارع الخريطة -->
-                <g stroke="#283144" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M 0,100 L 650,100" stroke-width="22"/>
-                    <path d="M 220,0 L 220,220" stroke-width="18"/>
-                    <path d="M 460,0 L 460,220" stroke-width="18"/>
-                    <path d="M 0,35 L 650,35" stroke-width="10"/>
-                    <path d="M 0,185 L 650,185" stroke-width="10"/>
-                    <path d="M 95,0 L 95,220" stroke-width="10"/>
+                <!-- شبكة الشوارع الرئيسية -->
+                <g stroke="#2c364a" stroke-width="26" stroke-linecap="round">
+                    <line x1="0" y1="125" x2="600" y2="125" />
+                    <line x1="195" y1="0" x2="195" y2="260" />
+                    <line x1="400" y1="0" x2="400" y2="260" />
                 </g>
 
-                <!-- خطوط الشوارع -->
-                <g stroke="#3d4961" stroke-width="1.5" stroke-dasharray="8 8">
-                    <path d="M 0,100 L 650,100"/>
-                    <path d="M 220,0 L 220,220"/>
-                    <path d="M 460,0 L 460,220"/>
+                <!-- خطوط منتصف الشارع التوضيحية -->
+                <g stroke="#42506b" stroke-width="2" stroke-dasharray="8 8">
+                    <line x1="0" y1="125" x2="600" y2="125" />
+                    <line x1="195" y1="0" x2="195" y2="260" />
+                    <line x1="400" y1="0" x2="400" y2="260" />
                 </g>
 
-                <!-- مسار الرحلة المحدد للملاحة -->
-                <path id="tukPath" class="route-line-bg" d="M 97.5,77 C 220,30 430,30 552.5,143" />
-                <path class="route-line-animated" d="M 97.5,77 C 220,30 430,30 552.5,143" />
+                <!-- مسار الرحلة المنحني -->
+                <path d="M 100,125 Q 300,50 500,125" class="route-line-bg" />
+                <path d="M 100,125 Q 300,50 500,125" class="route-line-animated" />
 
-                <!-- عنصر التوك توك المتحرك عبر SVG Native Motion -->
+                <!-- نقطة السائق القريب (البداية) -->
+                <g transform="translate(100, 125)">
+                    <circle r="22" fill="#232a3b" stroke="#ffcc00" stroke-width="2.5" />
+                    <text y="5" font-size="20" text-anchor="middle">🚖</text>
+                    
+                    <!-- بطاقة اسم السائق -->
+                    <rect x="-45" y="28" width="90" height="22" rx="6" fill="#11151e" stroke="#ffcc00" stroke-width="1" />
+                    <text id="driverLabel" y="43" font-size="11" font-weight="bold" fill="#ffcc00" text-anchor="middle">السائق القريب</text>
+                </g>
+
+                <!-- نقطة الراكب / العميل (النهاية) -->
+                <g transform="translate(500, 125)">
+                    <circle r="22" fill="#232a3b" stroke="#ffcc00" stroke-width="2.5" />
+                    <text y="5" font-size="20" text-anchor="middle">👤</text>
+                    
+                    <!-- بطاقة اسم العميل -->
+                    <rect x="-45" y="28" width="90" height="22" rx="6" fill="#11151e" stroke="#ffcc00" stroke-width="1" />
+                    <text id="passengerLabel" y="43" font-size="11" font-weight="bold" fill="#ffcc00" text-anchor="middle">موقع العميل</text>
+                </g>
+
+                <!-- حركة التوك توك المسجلة مباشرة داخل مسار الرحلة -->
                 <g>
-                    <text font-size="28" text-anchor="middle" dominant-baseline="central">🛺</text>
+                    <text font-size="30" text-anchor="middle" dominant-baseline="central">🛺</text>
                     <animateMotion 
-                        path="M 97.5,77 C 220,30 430,30 552.5,143" 
-                        dur="6s" 
+                        path="M 100,125 Q 300,50 500,125" 
+                        dur="5s" 
                         repeatCount="indefinite" 
                         rotate="auto" />
                 </g>
             </svg>
-
-            <!-- عناوين الراكب والسائق -->
-            <div class="node node-passenger">
-                <div class="node-icon">👤</div>
-                <div class="node-label" id="passengerLabel">موقع العميل</div>
-            </div>
-
-            <div class="node node-driver">
-                <div class="node-icon">🚖</div>
-                <div class="node-label" id="driverLabel">السائق القريب</div>
-            </div>
         </div>
     </div>
 
@@ -805,8 +767,8 @@ function toggleLanguage(){
         document.getElementById("subtitle").innerText = "Smart & Easy Tuk Tuk Booking Platform";
         document.getElementById("mapTitle").innerText = "Track Your Ride Live";
         document.getElementById("mapSubtitle").innerText = "Direct smart connection between passenger and driver";
-        document.getElementById("passengerLabel").innerText = "Passenger";
-        document.getElementById("driverLabel").innerText = "Nearby Driver";
+        document.getElementById("passengerLabel").textContent = "Passenger";
+        document.getElementById("driverLabel").textContent = "Nearby Driver";
 
         document.getElementById("statRides").innerText = "Completed Rides";
         document.getElementById("statTime").innerText = "Avg. Pickup Time";
@@ -851,8 +813,8 @@ function toggleLanguage(){
         document.getElementById("subtitle").innerText = "تطبيق طلب التوك توك الذكي بسهولة وسرعة";
         document.getElementById("mapTitle").innerText = "تتبع رحلتك لحظة بلحظة";
         document.getElementById("mapSubtitle").innerText = "ربط مباشر وسريع بين الراكب والسائق عبر الخريطة الذكية";
-        document.getElementById("passengerLabel").innerText = "موقع العميل";
-        document.getElementById("driverLabel").innerText = "السائق القريب";
+        document.getElementById("passengerLabel").textContent = "موقع العميل";
+        document.getElementById("driverLabel").textContent = "السائق القريب";
 
         document.getElementById("statRides").innerText = "رحلة مكتملة";
         document.getElementById("statTime").innerText = "متوسط زمن الوصول";
