@@ -10,7 +10,6 @@
 <meta name="description" content="TukDrive - التطبيق الأول لطلب التوك توك بسهولة وأمان">
 <meta name="theme-color" content="#ffcc00">
 
-<!-- Open Graph for Social Media Sharing -->
 <meta property="og:title" content="TukDrive - منصة طلب التوك توك الذكية">
 <meta property="og:description" content="اطلب توك توك بضغطة زر وتتبع رحلتك لحظة بلحظة">
 <meta property="og:image" content="logo.png">
@@ -19,13 +18,11 @@
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
 
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-
 * {
     margin: 0;
     padding: 0;
@@ -45,7 +42,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Glass Panel Theme */
 .glass-panel {
     background: #232a3b !important;
     border: 2px solid rgba(255, 204, 0, 0.5);
@@ -60,7 +56,6 @@ body {
     box-shadow: 0 12px 30px rgba(255, 204, 0, 0.2);
 }
 
-/* Navbar */
 nav {
     position: sticky;
     top: 0;
@@ -128,7 +123,6 @@ nav {
     box-shadow: 0 4px 15px rgba(255, 204, 0, 0.5);
 }
 
-/* Header Section */
 header {
     text-align: center;
     padding: 40px 20px 20px 20px;
@@ -163,14 +157,12 @@ header p {
     font-weight: 600;
 }
 
-/* Main Container */
 .container {
     max-width: 960px;
     margin: auto;
     padding: 15px 20px 50px 20px;
 }
 
-/* Map Card */
 .map-card {
     padding: 30px 20px;
     text-align: center;
@@ -190,7 +182,6 @@ header p {
     margin-bottom: 25px;
 }
 
-/* حاوية الخريطة التفاعلية */
 .map-container {
     position: relative;
     width: 100%;
@@ -230,43 +221,39 @@ header p {
     100% { stroke-dashoffset: 0; }
 }
 
-/* حركة التوك توك: الذهاب والعودة مع عكس اتجاه الأيموجي حسب مسار الحركة ليكون بوجهه دائماً */
+/* تعديل حركة واتجاه التوك توك ليكون بوجهه تماماً في الذهاب والعودة */
 .tuk-moving-group {
     animation: tukLoop 8s linear infinite;
 }
 
 @keyframes tukLoop {
-    /* رحلة الذهاب من السائق (120) إلى العميل (530) - اتجاه طبيعي (scaleX: 1) */
     0% {
         offset-path: path('M 120,130 Q 325,10 530,130');
         offset-distance: 0%;
-        transform: scaleX(1);
+        transform: scaleX(-1);
     }
     48% {
         offset-path: path('M 120,130 Q 325,10 530,130');
         offset-distance: 100%;
-        transform: scaleX(1);
+        transform: scaleX(-1);
     }
-    /* الاستدارة والتحويل لمسار العودة مع عكس أفقياً (scaleX: -1) ليتناسب مع اتجاه العودة */
     50% {
         offset-path: path('M 530,130 Q 325,250 120,130');
         offset-distance: 0%;
-        transform: scaleX(-1);
+        transform: scaleX(1);
     }
-    /* رحلة العودة من العميل (530) إلى السائق (120) - بالاتجاه المعاكس (scaleX: -1) */
     98% {
         offset-path: path('M 530,130 Q 325,250 120,130');
         offset-distance: 100%;
-        transform: scaleX(-1);
+        transform: scaleX(1);
     }
     100% {
         offset-path: path('M 120,130 Q 325,10 530,130');
         offset-distance: 0%;
-        transform: scaleX(1);
+        transform: scaleX(-1);
     }
 }
 
-/* Statistics Bar */
 .stats-bar {
     display: flex;
     justify-content: space-around;
@@ -289,7 +276,6 @@ header p {
     color: #cbd5e1;
 }
 
-/* How It Works Section */
 .section-title {
     text-align: center;
     font-size: 24px;
@@ -369,7 +355,6 @@ header p {
     line-height: 1.6;
 }
 
-/* Driver Section */
 .driver-banner {
     padding: 30px 25px;
     margin-bottom: 30px;
@@ -411,7 +396,6 @@ header p {
     transform: translateY(-2px);
 }
 
-/* FAQ Accordion Section */
 .faq-section {
     margin-bottom: 30px;
 }
@@ -447,7 +431,6 @@ header p {
     display: block;
 }
 
-/* Download Section */
 .download {
     padding: 35px 20px;
     text-align: center;
@@ -512,7 +495,6 @@ header p {
     cursor: not-allowed;
 }
 
-/* التنسيق الخاص بصورة أيقونة الشعار */
 .btn-icon {
     width: 20px;
     height: 20px;
@@ -571,13 +553,11 @@ footer p {
     .driver-banner { text-align: center; justify-content: center; }
     .app-screenshot-wrapper { height: 380px; }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- Sticky Navbar -->
 <nav>
     <a href="#" class="nav-brand">
         <img src="logo.png" alt="TukDrive" class="nav-logo">
@@ -602,29 +582,23 @@ footer p {
 
 <div class="container">
 
-    <!-- Live Map Section -->
     <div class="map-card glass-panel">
         <h2 id="mapTitle">تتبع رحلتك لحظة بلحظة</h2>
         <p class="subtitle" id="mapSubtitle">ربط مباشر وسريع بين الراكب والسائق عبر الخريطة الذكية</p>
 
         <div class="map-container">
             <svg class="map-svg-main" viewBox="0 0 650 220" xmlns="http://www.w3.org/2000/svg">
-                <!-- خلفية خريطة جوجل (Google Maps Style) -->
                 <rect x="0" y="0" width="650" height="220" fill="#f4f3f0"/>
                 
-                <!-- مناطق خضراء / حدائق -->
                 <path d="M 10,10 L 150,10 L 120,80 L 10,70 Z" fill="#c8e6c9" opacity="0.9"/>
                 <path d="M 480,130 L 640,120 L 640,210 L 450,200 Z" fill="#c8e6c9" opacity="0.9"/>
                 
-                <!-- مساحات مائية / نهر -->
                 <path d="M 0,180 Q 200,160 300,220 L 0,220 Z" fill="#aadaff"/>
 
-                <!-- المباني السكنية بلون الخريطة الأساسي -->
                 <rect x="180" y="15" width="120" height="40" rx="4" fill="#e0ded8" stroke="#d4d2cc"/>
                 <rect x="340" y="15" width="100" height="50" rx="4" fill="#e0ded8" stroke="#d4d2cc"/>
                 <rect x="220" y="130" width="180" height="60" rx="4" fill="#e0ded8" stroke="#d4d2cc"/>
 
-                <!-- شوارع جوجل العريضة -->
                 <g stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M 0,110 L 650,110" stroke-width="18"/>
                     <path d="M 200,0 L 200,220" stroke-width="16"/>
@@ -632,7 +606,6 @@ footer p {
                     <path d="M 0,40 L 650,40" stroke-width="10"/>
                 </g>
 
-                <!-- إطارات الشوارع لتعطي تأثير Google Maps -->
                 <g stroke="#d0ceca" stroke-linecap="round" stroke-linejoin="round" fill="none">
                     <path d="M 0,101 L 650,101" stroke-width="1.5"/>
                     <path d="M 0,119 L 650,119" stroke-width="1.5"/>
@@ -640,11 +613,9 @@ footer p {
                     <path d="M 208,0 L 208,220" stroke-width="1.5"/>
                 </g>
 
-                <!-- المسار المنحني لأعلى بالشكل الصحيح -->
                 <path d="M 120,130 Q 325,10 530,130" class="route-line-bg" />
                 <path d="M 120,130 Q 325,10 530,130" class="route-line-animated" />
 
-                <!-- السائق القريب (البداية) -->
                 <g transform="translate(120, 130)">
                     <circle r="19" fill="#ffffff" stroke="#ffcc00" stroke-width="3" />
                     <text y="5" font-size="18" text-anchor="middle">🚖</text>
@@ -652,7 +623,6 @@ footer p {
                     <text id="driverLabel" y="38" font-size="10" font-weight="bold" fill="#ffcc00" text-anchor="middle">السائق القريب</text>
                 </g>
 
-                <!-- موقع العميل (النهاية) -->
                 <g transform="translate(530, 130)">
                     <circle r="19" fill="#ffffff" stroke="#ffcc00" stroke-width="3" />
                     <text y="5" font-size="18" text-anchor="middle">👤</text>
@@ -660,7 +630,6 @@ footer p {
                     <text id="passengerLabel" y="38" font-size="10" font-weight="bold" fill="#ffcc00" text-anchor="middle">موقع العميل</text>
                 </g>
 
-                <!-- حركة التوك توك (ذهاب وعودة بوجهه دائماً مع عكس اتجاه الأيموجي أفقياً عند العودة) -->
                 <g class="tuk-moving-group">
                     <text font-size="28" text-anchor="middle" dominant-baseline="central">🛺</text>
                 </g>
@@ -668,7 +637,6 @@ footer p {
         </div>
     </div>
 
-    <!-- Statistics Bar -->
     <div class="stats-bar glass-panel">
         <div class="stat-item">
             <h4>+10,000</h4>
@@ -684,12 +652,9 @@ footer p {
         </div>
     </div>
 
-    <!-- How It Works Section with Screenshots -->
     <div id="how-it-works">
         <h2 class="section-title" id="howTitle">كيف يعمل TukDrive؟</h2>
         <div class="steps-grid">
-            
-            <!-- Step 1 -->
             <div class="step-card glass-panel">
                 <div class="step-num">1</div>
                 <div class="app-screenshot-wrapper">
@@ -699,7 +664,6 @@ footer p {
                 <p id="step1Desc">افتح التطبيق، وحدد نقطة الانطلاق ومكان الوصول على الخريطة التفاعلية بسهولة وسرعة.</p>
             </div>
 
-            <!-- Step 2 -->
             <div class="step-card glass-panel">
                 <div class="step-num">2</div>
                 <div class="app-screenshot-wrapper">
@@ -709,7 +673,6 @@ footer p {
                 <p id="step2Desc">اختر نوع المشوار، واقترح الأجرة المناسبة لك بكل حرية مع مرونة كاملة لتأكيد السعر المناسب قبل بدء الرحلة.</p>
             </div>
 
-            <!-- Step 3 -->
             <div class="step-card glass-panel">
                 <div class="step-num">3</div>
                 <div class="app-screenshot-wrapper">
@@ -718,11 +681,9 @@ footer p {
                 <h3 id="step3Title">إرسال الطلب ومطابقة السائق</h3>
                 <p id="step3Desc">اضغط على طلب توك توك، وسيقوم النظام فوراً بالبحث عن أقرب سائق متاح وتأكيد رحلتك.</p>
             </div>
-
         </div>
     </div>
 
-    <!-- Driver Section -->
     <div id="drivers" class="driver-banner glass-panel">
         <div class="driver-info">
             <h2 id="driverTitle">هل تملك توك توك؟ انضم إلينا!</h2>
@@ -731,7 +692,6 @@ footer p {
         <a href="#download" class="driver-btn" id="driverBtnText">سجل كـ سائق الآن</a>
     </div>
 
-    <!-- FAQ Section -->
     <div id="faq" class="faq-section">
         <h2 class="section-title" id="faqTitle">الأسئلة الشائعة</h2>
         
@@ -760,7 +720,6 @@ footer p {
         </div>
     </div>
 
-    <!-- Download Section -->
     <div id="download" class="download glass-panel">
         <h2 id="downloadTitle">تحميل التطبيق الآن</h2>
         <p id="downloadDesc">
@@ -772,7 +731,6 @@ footer p {
                 📱 تحميل أندرويد (APK)
             </a>
 
-            <!-- زر أبل مزود بصورة الشعار ومعرف مخصص -->
             <a href="#" class="ios-btn" id="iosBtn">
                 <img src="apple-logo.png" alt="Apple" class="btn-icon">
                 <span id="iosBtnText">قريباً للآيفون</span>
