@@ -285,36 +285,57 @@ header p {
     white-space: nowrap;
 }
 
-/* حركة التوك توك المعدلة للتحرك بجهة الوجه دائماً والدوران عند العودة */
+/* حركة التوك توك الإيموجي وتدويره بشكل متداخل يضمن الاتجاه الصحيح للوجه */
 .moving-tuk {
     position: absolute;
     z-index: 5;
-    font-size: 30px;
-    /* المسار من اليسار (السائق) إلى اليمين (العميل) */
+    font-size: 32px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     offset-path: path("M 98,77 Q 325,40 552,143");
-    offset-rotate: 0deg;
     animation: driveTuk 8s infinite ease-in-out;
     filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.8));
 }
 
+/* العنصر الداخلي الحامل للإيموجي للتحكم الدقيق في التدوير للوجه */
+.tuk-emoji-inner {
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
+
 @keyframes driveTuk {
-    /* بداية الحركة من السائق menuju العميل (وجهه لليمين) */
+    /* 1. الذهاب نحو العميل (الوجه يتجه لليمين للأمام نحو العميل) */
     0% {
         offset-distance: 0%;
-        transform: scaleX(1);
     }
+    45% {
+        offset-distance: 100%;
+    }
+    
+    /* 2. الالتفاف والدوران في مكان العميل */
     48% {
-        transform: scaleX(1);
-    }
-    /* الوصول للعميل والالتفاف (عكس اتجاه الوجه لليسار) */
-    50% {
         offset-distance: 100%;
         transform: scaleX(-1);
     }
-    98% {
+    
+    /* 3. العودة نحو السائق (الوجه يتجه لليسار للأمام نحو السائق) */
+    52% {
+        offset-distance: 100%;
         transform: scaleX(-1);
     }
-    /* العودة للسائق والالتفاف مجدداً */
+    95% {
+        offset-distance: 0%;
+        transform: scaleX(-1);
+    }
+    
+    /* 4. الالتفاف والدوران من جديد في مكان السائق */
+    98% {
+        offset-distance: 0%;
+        transform: scaleX(1);
+    }
     100% {
         offset-distance: 0%;
         transform: scaleX(1);
@@ -673,7 +694,10 @@ footer p {
                 <div class="node-label" id="driverLabel">السائق القريب</div>
             </div>
 
-            <div class="moving-tuk">🛺</div>
+            <!-- إيموجي التوك توك الأصلي مع الحاوية الخاصة بضبط الاتجاه -->
+            <div class="moving-tuk">
+                <span class="tuk-emoji-inner">🛺</span>
+            </div>
         </div>
     </div>
 
