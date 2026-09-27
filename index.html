@@ -59,7 +59,7 @@
             box-shadow: 0 12px 30px rgba(255, 204, 0, 0.2);
         }
 
-        /* Navbar */
+        /* Navbar Styles */
         nav {
             position: sticky;
             top: 0;
@@ -189,7 +189,7 @@
             margin-bottom: 25px;
         }
 
-        /* حاوية الخريطة المصممة بالكامل داخل SVG موحد */
+        /* حاوية الخريطة الموحدة بالكامل بالـ SVG */
         .map-container {
             width: 100%;
             max-width: 650px;
@@ -198,7 +198,8 @@
             border-radius: 16px;
             border: 1px solid rgba(255, 204, 0, 0.4);
             overflow: hidden;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+            box-shadow: inset 0 0 25px rgba(0,0,0,0.85);
+            direction: ltr !important;
         }
 
         .map-svg {
@@ -515,6 +516,7 @@
             font-size: 15px;
         }
 
+        /* Media Queries for Mobile Responsiveness */
         @media(max-width:768px){
             header h1 { font-size: 32px; }
             .nav-links a { display: none; }
@@ -557,7 +559,7 @@
         <p class="subtitle" id="mapSubtitle">ربط مباشر وسريع بين الراكب والسائق عبر الخريطة الذكية</p>
 
         <div class="map-container">
-            <!-- خريطة كاملة موحدة داخل SVG بـ viewBox يضمن التطابق 100% على كافة الشاشات -->
+            <!-- خريطة SVG موحدة 100% بدون أي تدوير مقلوب للتوكتوك -->
             <svg class="map-svg" viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
                 <!-- خلفية الخريطة والمباني -->
                 <rect width="600" height="260" fill="#151a24" />
@@ -582,9 +584,9 @@
                     <line x1="400" y1="0" x2="400" y2="260" />
                 </g>
 
-                <!-- مسار الرحلة المنحني -->
-                <path d="M 100,125 Q 300,50 500,125" class="route-line-bg" />
-                <path d="M 100,125 Q 300,50 500,125" class="route-line-animated" />
+                <!-- مسار الرحلة (مستقيم ومستقر لمنع أي انحراف) -->
+                <path id="tukRoutePath" d="M 100,125 L 500,125" class="route-line-bg" />
+                <path d="M 100,125 L 500,125" class="route-line-animated" />
 
                 <!-- نقطة السائق القريب (البداية) -->
                 <g transform="translate(100, 125)">
@@ -606,14 +608,13 @@
                     <text id="passengerLabel" y="43" font-size="11" font-weight="bold" fill="#ffcc00" text-anchor="middle">موقع العميل</text>
                 </g>
 
-                <!-- حركة التوك توك المسجلة مباشرة داخل مسار الرحلة -->
+                <!-- التوك توك المتحرك في وضع معتدل دائماً بدون دوران أو انقلاب -->
                 <g>
-                    <text font-size="30" text-anchor="middle" dominant-baseline="central">🛺</text>
+                    <text font-size="32" text-anchor="middle" dominant-baseline="central">🛺</text>
                     <animateMotion 
-                        path="M 100,125 Q 300,50 500,125" 
-                        dur="5s" 
-                        repeatCount="indefinite" 
-                        rotate="auto" />
+                        path="M 100,125 L 500,125" 
+                        dur="4s" 
+                        repeatCount="indefinite" />
                 </g>
             </svg>
         </div>
