@@ -221,22 +221,30 @@ header p {
     100% { stroke-dashoffset: 0; }
 }
 
-/* تعديل حركة واتجاه التوك توك ليكون بوجهه تماماً في الذهاب والعودة */
+/* حركة دقيقة ومنظمة: مسار ذهاب ومسار عودة منفصلين لضمان عدم الخروج عن المسار وبقاء الوجه للأمام دائماً */
 .tuk-moving-group {
     animation: tukLoop 8s linear infinite;
 }
 
 @keyframes tukLoop {
+    /* رحلة الذهاب من السائق إلى العميل */
     0% {
         offset-path: path('M 120,130 Q 325,10 530,130');
         offset-distance: 0%;
-        transform: scaleX(-1);
+        transform: scaleX(1);
     }
     48% {
         offset-path: path('M 120,130 Q 325,10 530,130');
         offset-distance: 100%;
-        transform: scaleX(-1);
+        transform: scaleX(1);
     }
+    /* نقطة الاستدارة بسلاسة تامة والانتقال لمسار العودة المعاكس تماماً بدون انقلاب خطأ */
+    49.9% {
+        offset-path: path('M 530,130 Q 325,250 120,130');
+        offset-distance: 0%;
+        transform: scaleX(1);
+    }
+    /* رحلة العودة من العميل إلى السائق بواجهة صحيحة ومنتظمة */
     50% {
         offset-path: path('M 530,130 Q 325,250 120,130');
         offset-distance: 0%;
@@ -250,7 +258,7 @@ header p {
     100% {
         offset-path: path('M 120,130 Q 325,10 530,130');
         offset-distance: 0%;
-        transform: scaleX(-1);
+        transform: scaleX(1);
     }
 }
 
