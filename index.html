@@ -26,56 +26,57 @@
     box-sizing: border-box;
 }
 
-/* 1. خلفية الموقع داكنة جداً */
+/* 1. خلفية داكنة جِداً وحالكة */
 body {
     font-family: 'Cairo', sans-serif;
-    background: #090b0e;
+    background: #0b0d12;
     background-image: 
-        radial-gradient(circle at 15% 15%, rgba(255, 204, 0, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 85% 85%, rgba(255, 204, 0, 0.03) 0%, transparent 40%);
+        radial-gradient(circle at 10% 10%, rgba(255, 204, 0, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(255, 204, 0, 0.03) 0%, transparent 40%);
     background-attachment: fixed;
     color: #f0f0f0;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* 2. براويز بطاقات الكلام أفتح بوضوح من الخلفية الداكنة */
+/* 2. براويز وكروت أفتح بوضوح شديد لتأكيد التباين */
 .glass-panel {
-    background: #1a202c !important; /* لون افتح بوضوح من الخلفية */
-    border: 1px solid rgba(255, 204, 0, 0.4);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    background: #232a3b !important; /* لون رمادي كحلي فاتح جداً وواضح */
+    border: 2px solid rgba(255, 204, 0, 0.5); /* حدود أصفر ذهبي ساطع */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
     border-radius: 20px;
     transition: all 0.3s ease;
 }
 
 .glass-panel:hover {
-    background: #222938 !important;
-    border-color: rgba(255, 204, 0, 0.7);
-    box-shadow: 0 12px 30px rgba(255, 204, 0, 0.15);
+    background: #2c354a !important;
+    border-color: #ffcc00;
+    box-shadow: 0 12px 30px rgba(255, 204, 0, 0.2);
 }
 
-/* زر اللغة */
+/* Language Button */
 .lang-btn {
     position: fixed;
     top: 20px;
     left: 20px;
     z-index: 999;
-    background: #222938;
+    background: #232a3b;
     color: #ffcc00;
-    border: 1px solid rgba(255, 204, 0, 0.5);
-    padding: 8px 20px;
+    border: 2px solid #ffcc00;
+    padding: 8px 22px;
     border-radius: 30px;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 800;
     font-family: 'Cairo', sans-serif;
     font-size: 14px;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 .lang-btn:hover {
     background: #ffcc00;
     color: #000;
-    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.5);
 }
 
 /* Header Section */
@@ -92,13 +93,13 @@ header {
     filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
 }
 
-/* كلمة Tuk بالأصفر و Drive بالأبيض */
 header h1 {
     font-size: 38px;
     font-weight: 900;
     margin-bottom: 4px;
 }
 
+/* كلمة Tuk بالأصفر و Drive بالأبيض */
 .txt-tuk {
     color: #ffcc00;
     text-shadow: 0 0 12px rgba(255, 204, 0, 0.4);
@@ -142,20 +143,21 @@ header p {
     margin-bottom: 25px;
 }
 
-/* Map Container */
+/* الخريطة مع تثبيت الاتجاه هندسياً لتعمل دائماً بكل اللغات */
 .map-container {
     position: relative;
     width: 100%;
     max-width: 650px;
     height: 220px;
     margin: 0 auto;
-    background: #0f131a;
+    background: #11151e;
     border-radius: 16px;
-    border: 1px solid rgba(255, 204, 0, 0.35);
+    border: 1px solid rgba(255, 204, 0, 0.4);
     overflow: hidden;
+    direction: ltr !important; /* تثبيت اتجاه الخريطة */
 }
 
-/* خطوط الخريطة والشوارع */
+/* شبكة الخريطة والشوارع */
 .city-map-bg {
     position: absolute;
     width: 100%;
@@ -163,12 +165,12 @@ header p {
     top: 0;
     left: 0;
     opacity: 0.35;
-    background-color: #0f131a;
+    background-color: #11151e;
     background-image: 
         linear-gradient(rgba(255, 255, 255, 0.3) 6px, transparent 6px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.3) 6px, transparent 6px),
-        linear-gradient(rgba(255, 204, 0, 0.2) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(255, 204, 0, 0.2) 2px, transparent 2px);
+        linear-gradient(rgba(255, 204, 0, 0.25) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255, 204, 0, 0.25) 2px, transparent 2px);
     background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
 }
 
@@ -202,7 +204,7 @@ header p {
     100% { stroke-dashoffset: 0; }
 }
 
-/* النقاط (العميل والسائق) */
+/* النقاط على الخريطة */
 .node {
     position: absolute;
     z-index: 3;
@@ -226,7 +228,7 @@ header p {
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: #1a202c;
+    background: #232a3b;
     border: 2px solid #ffcc00;
     display: flex;
     align-items: center;
@@ -237,7 +239,7 @@ header p {
 
 .node-label {
     margin-top: 6px;
-    background: #0f131a;
+    background: #11151e;
     padding: 3px 10px;
     border-radius: 12px;
     font-size: 12px;
@@ -247,43 +249,34 @@ header p {
     white-space: nowrap;
 }
 
-/* 3. حركة التوك توك: معدول دائماً وبطيء (10 ثوانٍ) */
-.moving-tuk-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    pointer-events: none;
-}
-
+/* التوك توك المتحرك: معدول ومستمر وبطيء (12 ثانية) */
 .moving-tuk {
     position: absolute;
+    z-index: 5;
     font-size: 26px;
     offset-path: path("M 552,143 Q 325,40 98,77");
-    animation: driveTuk 10s infinite linear;
+    animation: driveTuk 12s infinite linear;
     filter: drop-shadow(0 0 6px rgba(255, 204, 0, 0.8));
 }
 
 @keyframes driveTuk {
     0% {
         offset-distance: 0%;
-        transform: scaleX(1); /* معدول */
+        transform: scaleX(-1); /* اتجاه معدول لليسار */
     }
     49% {
-        transform: scaleX(1);
+        transform: scaleX(-1);
     }
     50% {
         offset-distance: 100%;
-        transform: scaleX(-1); /* معدول في العودة */
+        transform: scaleX(1); /* اتجاه معدول لليمين عند العودة */
     }
     99% {
-        transform: scaleX(-1);
+        transform: scaleX(1);
     }
     100% {
         offset-distance: 0%;
-        transform: scaleX(1);
+        transform: scaleX(-1);
     }
 }
 
@@ -410,13 +403,13 @@ header p {
 .btn {
     display: inline-block;
     text-decoration: none;
-    background: rgba(255, 204, 0, 0.15);
+    background: #232a3b;
     color: #ffcc00;
     padding: 10px 22px;
     border-radius: 30px;
     font-size: 14px;
     font-weight: 700;
-    border: 1px solid rgba(255, 204, 0, 0.45);
+    border: 1px solid rgba(255, 204, 0, 0.5);
     transition: all 0.3s ease;
 }
 
@@ -490,9 +483,7 @@ footer p {
                 <div class="node-label" id="driverLabel">السائق القريب</div>
             </div>
 
-            <div class="moving-tuk-wrapper">
-                <div class="moving-tuk">🛺</div>
-            </div>
+            <div class="moving-tuk">🛺</div>
         </div>
     </div>
 
