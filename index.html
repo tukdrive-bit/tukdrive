@@ -230,7 +230,7 @@ header p {
     100% { stroke-dashoffset: 0; }
 }
 
-/* ضبط انيميشن التوك توك ليتحرك للأمام دائماً وينعكس أفقياً عند العودة */
+/* حركة التوك توك الثابتة والمستقرة (بدون انقلاب وبدون سير للخلف) */
 .tuk-moving-group {
     offset-rotate: auto;
     animation: tukLoop 8s ease-in-out infinite;
@@ -238,26 +238,40 @@ header p {
 
 .tuk-moving-group text {
     display: block;
+    animation: tukFlip 8s ease-in-out infinite;
 }
 
 @keyframes tukLoop {
+    /* رحلة الذهاب إلى العميل */
     0% {
         offset-distance: 0%;
-        transform: scaleY(1);
     }
-    48% {
-        transform: scaleY(1);
+    45% {
+        offset-distance: 100%;
     }
+    /* التوقف لحظة الاستدارة عند العميل */
     50% {
         offset-distance: 100%;
-        transform: scaleY(-1);
     }
-    98% {
-        transform: scaleY(-1);
+    /* رحلة العودة إلى السائق */
+    95% {
+        offset-distance: 0%;
     }
     100% {
         offset-distance: 0%;
-        transform: scaleY(1);
+    }
+}
+
+/* الانعكاس الأفقي التلقائي للتوك توك للذهاب والإياد بوجهه */
+@keyframes tukFlip {
+    0%, 48% {
+        transform: scaleX(1);
+    }
+    50%, 98% {
+        transform: scaleX(-1);
+    }
+    100% {
+        transform: scaleX(1);
     }
 }
 
@@ -495,6 +509,7 @@ header p {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     padding: 13px 28px;
     border-radius: 30px;
     font-weight: 800;
@@ -504,6 +519,14 @@ header p {
     color: #aaa;
     border: 1px solid rgba(255, 255, 255, 0.15);
     cursor: not-allowed;
+}
+
+/* التنسيق الخاص بصورة أيقونة الشعار */
+.btn-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
 }
 
 .legal-buttons {
@@ -646,7 +669,7 @@ footer p {
                     <text id="passengerLabel" y="38" font-size="10" font-weight="bold" fill="#ffcc00" text-anchor="middle">موقع العميل</text>
                 </g>
 
-                <!-- حركة التوك توك المتناسقة مع الانحناء والاتجاه -->
+                <!-- حركة التوك توك المتناسقة والمستقرة جداً -->
                 <g class="tuk-moving-group" style="offset-path: path('M 120,130 Q 325,10 530,130');">
                     <text font-size="28" text-anchor="middle" dominant-baseline="central">🛺</text>
                 </g>
@@ -758,8 +781,10 @@ footer p {
                 📱 تحميل أندرويد (APK)
             </a>
 
+            <!-- زر أبل مزود بصورة الشعار ومعرف مخصص -->
             <a href="#" class="ios-btn" id="iosBtn">
-                🍎 قريباً للآيفون
+                <img src="apple-logo.png" alt="Apple" class="btn-icon">
+                <span id="iosBtnText">قريباً للآيفون</span>
             </a>
         </div>
     </div>
@@ -829,7 +854,7 @@ function toggleLanguage(){
         document.getElementById("downloadTitle").innerText = "Download App Now";
         document.getElementById("downloadDesc").innerHTML = "Android APK is available now.<br>Google Play launch is coming soon.";
         document.getElementById("androidBtn").innerText = "📱 Download Android (APK)";
-        document.getElementById("iosBtn").innerText = "🍎 Coming Soon for iOS";
+        document.getElementById("iosBtnText").innerText = "Coming Soon for iOS";
 
         document.getElementById("privacyBtn").innerText = "Privacy Policy";
         document.getElementById("deleteBtn").innerText = "Delete Account";
@@ -875,7 +900,7 @@ function toggleLanguage(){
         document.getElementById("downloadTitle").innerText = "تحميل التطبيق الآن";
         document.getElementById("downloadDesc").innerHTML = "نسخة الأندرويد متاحة الآن للتحميل المباشر بصيغة APK.<br>وسيتم إطلاق التطبيق على متجر Google Play قريباً.";
         document.getElementById("androidBtn").innerText = "📱 تحميل أندرويد (APK)";
-        document.getElementById("iosBtn").innerText = "🍎 قريباً للآيفون";
+        document.getElementById("iosBtnText").innerText = "قريباً للآيفون";
 
         document.getElementById("privacyBtn").innerText = "سياسة الخصوصية";
         document.getElementById("deleteBtn").innerText = "حذف الحساب";
