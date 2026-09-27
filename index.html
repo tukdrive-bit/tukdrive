@@ -28,32 +28,32 @@
 
 body {
     font-family: 'Cairo', sans-serif;
-    /* خلفية داكنة خفيفة وأنيقة */
-    background: #181c24;
+    /* خلفية داكنة جداً وعميقة */
+    background: #0d0f14;
     background-image: 
-        radial-gradient(circle at 15% 15%, rgba(255, 204, 0, 0.12) 0%, transparent 45%),
-        radial-gradient(circle at 85% 85%, rgba(255, 204, 0, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, #202632 0%, #14171f 100%);
+        radial-gradient(circle at 20% 20%, rgba(255, 204, 0, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(255, 204, 0, 0.03) 0%, transparent 45%);
     background-attachment: fixed;
     color: #f0f0f0;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* Glassmorphism Panel */
+/* Glassmorphism Panel - براويز افتح بتباين أوف وايت / رمادي فاتح مائل للذهبي */
 .glass-panel {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(38, 45, 61, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 204, 0, 0.25);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 204, 0, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border-radius: 24px;
     transition: all 0.3s ease;
 }
 
 .glass-panel:hover {
-    border-color: rgba(255, 204, 0, 0.5);
-    box-shadow: 0 12px 35px rgba(255, 204, 0, 0.12);
+    background: rgba(45, 54, 72, 0.85);
+    border-color: rgba(255, 204, 0, 0.6);
+    box-shadow: 0 12px 35px rgba(255, 204, 0, 0.15);
 }
 
 /* Language Button */
@@ -62,11 +62,11 @@ body {
     top: 20px;
     left: 20px;
     z-index: 999;
-    background: rgba(255, 204, 0, 0.15);
+    background: rgba(255, 204, 0, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     color: #ffcc00;
-    border: 1px solid rgba(255, 204, 0, 0.4);
+    border: 1px solid rgba(255, 204, 0, 0.5);
     padding: 8px 20px;
     border-radius: 30px;
     cursor: pointer;
@@ -94,7 +94,7 @@ header {
     height: auto;
     display: block;
     margin: 0 auto 12px auto;
-    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
     transition: transform 0.3s ease;
 }
 
@@ -102,7 +102,7 @@ header {
     transform: scale(1.05);
 }
 
-/* Tukبالأصفر و Drive بالأبيض */
+/* Tuk باللون الأصفر و Drive باللون الأبيض */
 header h1 {
     font-size: 38px;
     font-weight: 900;
@@ -112,7 +112,7 @@ header h1 {
 
 .txt-tuk {
     color: #ffcc00;
-    text-shadow: 0 0 12px rgba(255, 204, 0, 0.3);
+    text-shadow: 0 0 12px rgba(255, 204, 0, 0.4);
 }
 
 .txt-drive {
@@ -150,7 +150,7 @@ header p {
 
 .map-card p.subtitle {
     font-size: 15px;
-    color: #ccc;
+    color: #e2e8f0;
     margin-bottom: 25px;
 }
 
@@ -161,29 +161,27 @@ header p {
     max-width: 650px;
     height: 220px;
     margin: 0 auto;
-    background: #12161f;
+    background: #141822;
     border-radius: 20px;
-    border: 1px solid rgba(255, 204, 0, 0.3);
-    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 204, 0, 0.35);
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.9);
     overflow: hidden;
 }
 
-/* Simulated City Map Design (شوارع ومباني الخريطة) */
+/* Simulated City Map Design */
 .city-map-bg {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    opacity: 0.25;
-    background-color: #12161f;
+    opacity: 0.28;
+    background-color: #141822;
     background-image: 
-        /* Main Roads */
-        linear-gradient(rgba(255, 255, 255, 0.3) 8px, transparent 8px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.3) 8px, transparent 8px),
-        /* Secondary Grid */
-        linear-gradient(rgba(255, 204, 0, 0.2) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(255, 204, 0, 0.2) 2px, transparent 2px);
+        linear-gradient(rgba(255, 255, 255, 0.35) 8px, transparent 8px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.35) 8px, transparent 8px),
+        linear-gradient(rgba(255, 204, 0, 0.25) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255, 204, 0, 0.25) 2px, transparent 2px);
     background-size: 120px 120px, 120px 120px, 30px 30px, 30px 30px;
     background-position: -10px -10px, -10px -10px, -1px -1px, -1px -1px;
 }
@@ -200,7 +198,7 @@ header p {
 
 .route-line-bg {
     fill: none;
-    stroke: rgba(255, 204, 0, 0.2);
+    stroke: rgba(255, 204, 0, 0.25);
     stroke-width: 4;
     stroke-dasharray: 6 6;
 }
@@ -210,7 +208,7 @@ header p {
     stroke: #ffcc00;
     stroke-width: 4;
     stroke-dasharray: 12 12;
-    animation: moveRoute 2s linear infinite;
+    animation: moveRoute 2.5s linear infinite;
     filter: drop-shadow(0 0 6px rgba(255, 204, 0, 0.8));
 }
 
@@ -231,7 +229,7 @@ header p {
 
 .node-passenger {
     top: 65%;
-    right: 15%;
+    left: 85%;
 }
 
 .node-driver {
@@ -243,7 +241,7 @@ header p {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: #1a1e29;
+    background: #1c2230;
     border: 2px solid #ffcc00;
     display: flex;
     align-items: center;
@@ -269,31 +267,46 @@ header p {
 
 .node-label {
     margin-top: 6px;
-    background: rgba(20, 24, 33, 0.9);
+    background: rgba(18, 22, 31, 0.95);
     padding: 3px 10px;
     border-radius: 12px;
     font-size: 12px;
     font-weight: 700;
     color: #ffcc00;
-    border: 1px solid rgba(255, 204, 0, 0.3);
+    border: 1px solid rgba(255, 204, 0, 0.4);
     white-space: nowrap;
 }
 
-/* Moving Tuk Tuk */
+/* Moving Tuk Tuk - حركة بطيئة ومعدولة في الاتجاهين */
 .moving-tuk {
     position: absolute;
     z-index: 4;
-    font-size: 24px;
-    offset-path: path("M 520,140 Q 325,40 95,80");
-    animation: driveTuk 4s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    font-size: 26px;
+    offset-path: path("M 552,143 Q 325,40 98,77");
+    /* تبطيء الحركة لـ 10 ثوانٍ بدلاً من 4 ثوانٍ */
+    animation: driveTuk 10s infinite linear;
     filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.9));
 }
 
 @keyframes driveTuk {
-    0% { offset-distance: 0%; transform: scaleX(-1); }
-    50% { offset-distance: 100%; transform: scaleX(-1); }
-    50.1% { transform: scaleX(1); }
-    100% { offset-distance: 0%; transform: scaleX(1); }
+    0% {
+        offset-distance: 0%;
+        transform: scaleX(1); /* اتجاه معدول أثناء الذهاب */
+    }
+    48% {
+        transform: scaleX(1);
+    }
+    50% {
+        offset-distance: 100%;
+        transform: scaleX(-1); /* دوران معدول أثناء العودة */
+    }
+    98% {
+        transform: scaleX(-1);
+    }
+    100% {
+        offset-distance: 0%;
+        transform: scaleX(1);
+    }
 }
 
 /* Welcome Card */
@@ -313,7 +326,7 @@ header p {
 .card p {
     font-size: 16px;
     line-height: 1.8;
-    color: #e5e7eb;
+    color: #f3f4f6;
 }
 
 /* Features Grid */
@@ -340,7 +353,7 @@ header p {
 
 .feature p {
     font-size: 14px;
-    color: #d1d5db;
+    color: #e5e7eb;
     line-height: 1.6;
 }
 
@@ -360,7 +373,7 @@ header p {
 
 .download p {
     font-size: 15px;
-    color: #d1d5db;
+    color: #e5e7eb;
     line-height: 1.6;
 }
 
@@ -385,7 +398,7 @@ header p {
     transition: all 0.3s ease;
 }
 
-/* أزرار باللون الأصفر الجذاب */
+/* أزرار باللون الأصفر */
 .android-btn {
     background: linear-gradient(135deg, #ffcc00 0%, #e6b800 100%);
     color: #111;
@@ -400,9 +413,9 @@ header p {
 }
 
 .ios-btn {
-    background: rgba(255, 255, 255, 0.05);
-    color: #888;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    color: #aaa;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     cursor: not-allowed;
 }
 
@@ -419,23 +432,23 @@ header p {
 .btn {
     display: inline-block;
     text-decoration: none;
-    background: rgba(255, 204, 0, 0.1);
+    background: rgba(255, 204, 0, 0.15);
     color: #ffcc00;
     padding: 10px 22px;
     border-radius: 30px;
     font-size: 14px;
     font-weight: 700;
-    border: 1px solid rgba(255, 204, 0, 0.4);
+    border: 1px solid rgba(255, 204, 0, 0.45);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background: rgba(255, 204, 0, 0.25);
+    background: rgba(255, 204, 0, 0.3);
     color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.25);
 }
 
 /* Footer */
@@ -443,7 +456,7 @@ footer {
     text-align: center;
     padding: 30px 20px;
     margin-top: 40px;
-    background: rgba(15, 18, 25, 0.8);
+    background: rgba(12, 15, 22, 0.9);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-top: 1px solid rgba(255, 204, 0, 0.2);
@@ -485,12 +498,12 @@ footer p {
 
     .node-passenger {
         top: 65%;
-        right: 10%;
+        left: 85%;
     }
 
     .node-driver {
         top: 35%;
-        left: 10%;
+        left: 15%;
     }
 
     .card h2, .download h2, .map-card h2 {
@@ -532,8 +545,8 @@ footer p {
 
             <svg class="route-svg" viewBox="0 0 650 220">
                 <!-- Curved Route Path -->
-                <path class="route-line-bg" d="M 520,140 Q 325,40 95,80" />
-                <path class="route-line-animated" d="M 520,140 Q 325,40 95,80" />
+                <path class="route-line-bg" d="M 552,143 Q 325,40 98,77" />
+                <path class="route-line-animated" d="M 552,143 Q 325,40 98,77" />
             </svg>
 
             <!-- Passenger Pin -->
@@ -660,7 +673,39 @@ function toggleLanguage(){
 
         document.getElementById("supportText").innerText = "Support Email";
     } else {
-        location.reload();
+        document.documentElement.lang = "ar";
+        document.documentElement.dir = "rtl";
+
+        document.querySelector(".lang-btn").innerText = "English";
+
+        document.getElementById("subtitle").innerText = "تطبيق طلب التوك توك بسهولة وسرعة";
+        document.getElementById("mapTitle").innerText = "تتبع رحلتك لحظة بلحظة";
+        document.getElementById("mapSubtitle").innerText = "ربط مباشر وسريع بين الراكب والسائق عبر الخريطة الذكية";
+        document.getElementById("passengerLabel").innerText = "موقع العميل";
+        document.getElementById("driverLabel").innerText = "السائق القريب";
+
+        document.getElementById("welcome").innerText = "مرحباً بك في TukDrive";
+        document.getElementById("description").innerText = "TukDrive منصة ذكية تربط الركاب بالسائقين لتسهيل طلب رحلات التوك توك بطريقة آمنة وسريعة وموثوقة.";
+
+        document.getElementById("f1").innerText = "🚖 طلب رحلة بسهولة";
+        document.getElementById("f1p").innerText = "اطلب رحلة التوك توك بضغطة واحدة.";
+
+        document.getElementById("f2").innerText = "📍 تحديد الموقع";
+        document.getElementById("f2p").innerText = "استخدام الموقع الحالي لتسهيل الوصول.";
+
+        document.getElementById("f3").innerText = "🔒 أمان وخصوصية";
+        document.getElementById("f3p").innerText = "نحافظ على بيانات المستخدمين وخصوصيتهم.";
+
+        document.getElementById("downloadTitle").innerText = "تحميل التطبيق";
+        document.getElementById("downloadDesc").innerHTML = "نسخة أندرويد متاحة حالياً من خلال الموقع الرسمي.<br>وسيتم إطلاق التطبيق على Google Play قريباً.";
+
+        document.getElementById("androidBtn").innerText = "📱 تحميل للأندرويد";
+        document.getElementById("iosBtn").innerText = "🍎 قريباً للآيفون";
+
+        document.getElementById("privacyBtn").innerText = "سياسة الخصوصية";
+        document.getElementById("deleteBtn").innerText = "حذف الحساب";
+
+        document.getElementById("supportText").innerText = "البريد الإلكتروني للدعم";
     }
 }
 
