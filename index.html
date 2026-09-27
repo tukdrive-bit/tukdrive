@@ -285,29 +285,30 @@ header p {
     white-space: nowrap;
 }
 
-/* حركة التوك توك المعدولة بدون أي انقلاب */
+/* حركة التوك توك المعدولة وبدون انقلاب */
 .moving-tuk {
     position: absolute;
     z-index: 5;
-    font-size: 28px;
+    font-size: 30px;
     offset-path: path("M 552,143 Q 325,40 98,77");
-    animation: driveTuk 10s infinite ease-in-out;
-    filter: drop-shadow(0 0 6px rgba(255, 204, 0, 0.8));
+    offset-rotate: 0deg; /* منع الدوران التلقائي لمنع الانقلاب */
+    animation: driveTuk 8s infinite ease-in-out;
+    filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.8));
 }
 
 @keyframes driveTuk {
     0% {
         offset-distance: 0%;
-        transform: scaleX(-1);
+        transform: scaleX(-1); /* متجه لليسار أثناء ذهابه من اليمين للسيارات */
     }
-    48% {
+    45% {
         transform: scaleX(-1);
     }
     50% {
         offset-distance: 100%;
-        transform: scaleX(1);
+        transform: scaleX(1); /* ينعكس أفقياً فقط عند عودته لليمين */
     }
-    98% {
+    95% {
         transform: scaleX(1);
     }
     100% {
@@ -380,25 +381,30 @@ header p {
 
 .app-screenshot-wrapper {
     width: 100%;
-    max-width: 210px;
+    max-width: 220px;
+    height: 440px;
     margin-bottom: 15px;
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    border: 2px solid rgba(255, 204, 0, 0.5);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    background: #000;
+    border: 2px solid rgba(255, 204, 0, 0.6);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+    background: #11151e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .app-screenshot {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
     object-fit: cover;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
     transition: transform 0.3s ease;
 }
 
 .step-card:hover .app-screenshot {
-    transform: scale(1.04);
+    transform: scale(1.03);
 }
 
 .step-card h3 {
@@ -607,6 +613,7 @@ footer p {
     .driver-banner { text-align: center; justify-content: center; }
     .map-container { height: 180px; }
     .moving-tuk { offset-path: path("M 280,120 Q 180,30 45,70"); }
+    .app-screenshot-wrapper { height: 380px; }
 }
 
 </style>
