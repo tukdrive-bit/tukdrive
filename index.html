@@ -26,45 +26,41 @@
     box-sizing: border-box;
 }
 
+/* 1. خلفية الموقع داكنة جداً */
 body {
     font-family: 'Cairo', sans-serif;
-    /* خلفية داكنة جداً وعميقة */
-    background: #0d0f14;
+    background: #090b0e;
     background-image: 
-        radial-gradient(circle at 20% 20%, rgba(255, 204, 0, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(255, 204, 0, 0.03) 0%, transparent 45%);
+        radial-gradient(circle at 15% 15%, rgba(255, 204, 0, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(255, 204, 0, 0.03) 0%, transparent 40%);
     background-attachment: fixed;
     color: #f0f0f0;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* Glassmorphism Panel - براويز افتح بتباين أوف وايت / رمادي فاتح مائل للذهبي */
+/* 2. براويز بطاقات الكلام أفتح بوضوح من الخلفية الداكنة */
 .glass-panel {
-    background: rgba(38, 45, 61, 0.75);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 204, 0, 0.35);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border-radius: 24px;
+    background: #1a202c !important; /* لون افتح بوضوح من الخلفية */
+    border: 1px solid rgba(255, 204, 0, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
     transition: all 0.3s ease;
 }
 
 .glass-panel:hover {
-    background: rgba(45, 54, 72, 0.85);
-    border-color: rgba(255, 204, 0, 0.6);
-    box-shadow: 0 12px 35px rgba(255, 204, 0, 0.15);
+    background: #222938 !important;
+    border-color: rgba(255, 204, 0, 0.7);
+    box-shadow: 0 12px 30px rgba(255, 204, 0, 0.15);
 }
 
-/* Language Button */
+/* زر اللغة */
 .lang-btn {
     position: fixed;
     top: 20px;
     left: 20px;
     z-index: 999;
-    background: rgba(255, 204, 0, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: #222938;
     color: #ffcc00;
     border: 1px solid rgba(255, 204, 0, 0.5);
     padding: 8px 20px;
@@ -80,7 +76,6 @@ body {
     background: #ffcc00;
     color: #000;
     box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
-    transform: translateY(-2px);
 }
 
 /* Header Section */
@@ -95,19 +90,13 @@ header {
     display: block;
     margin: 0 auto 12px auto;
     filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
-    transition: transform 0.3s ease;
 }
 
-.logo:hover {
-    transform: scale(1.05);
-}
-
-/* Tuk باللون الأصفر و Drive باللون الأبيض */
+/* كلمة Tuk بالأصفر و Drive بالأبيض */
 header h1 {
     font-size: 38px;
     font-weight: 900;
     margin-bottom: 4px;
-    letter-spacing: 0.5px;
 }
 
 .txt-tuk {
@@ -138,7 +127,6 @@ header p {
     text-align: center;
     margin-bottom: 25px;
     position: relative;
-    overflow: hidden;
 }
 
 .map-card h2 {
@@ -154,39 +142,37 @@ header p {
     margin-bottom: 25px;
 }
 
-/* Map Graphics Container */
+/* Map Container */
 .map-container {
     position: relative;
     width: 100%;
     max-width: 650px;
     height: 220px;
     margin: 0 auto;
-    background: #141822;
-    border-radius: 20px;
+    background: #0f131a;
+    border-radius: 16px;
     border: 1px solid rgba(255, 204, 0, 0.35);
-    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.9);
     overflow: hidden;
 }
 
-/* Simulated City Map Design */
+/* خطوط الخريطة والشوارع */
 .city-map-bg {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    opacity: 0.28;
-    background-color: #141822;
+    opacity: 0.35;
+    background-color: #0f131a;
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.35) 8px, transparent 8px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.35) 8px, transparent 8px),
-        linear-gradient(rgba(255, 204, 0, 0.25) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(255, 204, 0, 0.25) 2px, transparent 2px);
-    background-size: 120px 120px, 120px 120px, 30px 30px, 30px 30px;
-    background-position: -10px -10px, -10px -10px, -1px -1px, -1px -1px;
+        linear-gradient(rgba(255, 255, 255, 0.3) 6px, transparent 6px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.3) 6px, transparent 6px),
+        linear-gradient(rgba(255, 204, 0, 0.2) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255, 204, 0, 0.2) 2px, transparent 2px);
+    background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
 }
 
-/* SVG Route Path */
+/* SVG المسار */
 .route-svg {
     position: absolute;
     top: 0;
@@ -208,8 +194,7 @@ header p {
     stroke: #ffcc00;
     stroke-width: 4;
     stroke-dasharray: 12 12;
-    animation: moveRoute 2.5s linear infinite;
-    filter: drop-shadow(0 0 6px rgba(255, 204, 0, 0.8));
+    animation: moveRoute 3s linear infinite;
 }
 
 @keyframes moveRoute {
@@ -217,7 +202,7 @@ header p {
     100% { stroke-dashoffset: 0; }
 }
 
-/* Nodes on Map */
+/* النقاط (العميل والسائق) */
 .node {
     position: absolute;
     z-index: 3;
@@ -238,36 +223,21 @@ header p {
 }
 
 .node-icon {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    background: #1c2230;
+    background: #1a202c;
     border: 2px solid #ffcc00;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
-    box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
-    position: relative;
-}
-
-.pulse-ring {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 2px solid #ffcc00;
-    animation: pulse 1.8s infinite ease-out;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    100% { transform: scale(1.7); opacity: 0; }
+    box-shadow: 0 0 12px rgba(255, 204, 0, 0.4);
 }
 
 .node-label {
     margin-top: 6px;
-    background: rgba(18, 22, 31, 0.95);
+    background: #0f131a;
     padding: 3px 10px;
     border-radius: 12px;
     font-size: 12px;
@@ -277,30 +247,38 @@ header p {
     white-space: nowrap;
 }
 
-/* Moving Tuk Tuk - حركة بطيئة ومعدولة في الاتجاهين */
+/* 3. حركة التوك توك: معدول دائماً وبطيء (10 ثوانٍ) */
+.moving-tuk-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
 .moving-tuk {
     position: absolute;
-    z-index: 4;
     font-size: 26px;
     offset-path: path("M 552,143 Q 325,40 98,77");
-    /* تبطيء الحركة لـ 10 ثوانٍ بدلاً من 4 ثوانٍ */
     animation: driveTuk 10s infinite linear;
-    filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.9));
+    filter: drop-shadow(0 0 6px rgba(255, 204, 0, 0.8));
 }
 
 @keyframes driveTuk {
     0% {
         offset-distance: 0%;
-        transform: scaleX(1); /* اتجاه معدول أثناء الذهاب */
+        transform: scaleX(1); /* معدول */
     }
-    48% {
+    49% {
         transform: scaleX(1);
     }
     50% {
         offset-distance: 100%;
-        transform: scaleX(-1); /* دوران معدول أثناء العودة */
+        transform: scaleX(-1); /* معدول في العودة */
     }
-    98% {
+    99% {
         transform: scaleX(-1);
     }
     100% {
@@ -309,7 +287,7 @@ header p {
     }
 }
 
-/* Welcome Card */
+/* Cards & Content */
 .card {
     padding: 28px 30px;
     text-align: center;
@@ -329,7 +307,6 @@ header p {
     color: #f3f4f6;
 }
 
-/* Features Grid */
 .features {
     display: flex;
     flex-wrap: wrap;
@@ -385,7 +362,27 @@ header p {
     gap: 12px;
 }
 
-.android-btn,
+.android-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 15px;
+    text-decoration: none;
+    background: linear-gradient(135deg, #ffcc00 0%, #e6b800 100%);
+    color: #111;
+    box-shadow: 0 4px 18px rgba(255, 204, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.android-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(255, 204, 0, 0.5);
+}
+
 .ios-btn {
     display: inline-flex;
     align-items: center;
@@ -395,31 +392,12 @@ header p {
     font-weight: 800;
     font-size: 15px;
     text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-/* أزرار باللون الأصفر */
-.android-btn {
-    background: linear-gradient(135deg, #ffcc00 0%, #e6b800 100%);
-    color: #111;
-    box-shadow: 0 4px 18px rgba(255, 204, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-.android-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 22px rgba(255, 204, 0, 0.5);
-    background: linear-gradient(135deg, #ffd633 0%, #ffcc00 100%);
-}
-
-.ios-btn {
     background: rgba(255, 255, 255, 0.08);
     color: #aaa;
     border: 1px solid rgba(255, 255, 255, 0.15);
     cursor: not-allowed;
 }
 
-/* Policy and Action Buttons */
 .buttons {
     text-align: center;
     margin-top: 30px;
@@ -439,8 +417,6 @@ header p {
     font-size: 14px;
     font-weight: 700;
     border: 1px solid rgba(255, 204, 0, 0.45);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     transition: all 0.3s ease;
 }
 
@@ -448,17 +424,13 @@ header p {
     background: rgba(255, 204, 0, 0.3);
     color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.25);
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 30px 20px;
     margin-top: 40px;
-    background: rgba(12, 15, 22, 0.9);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: #080a0d;
     border-top: 1px solid rgba(255, 204, 0, 0.2);
     color: #9ca3af;
 }
@@ -474,49 +446,10 @@ footer p {
     font-size: 15px;
 }
 
-/* Responsive Styles */
 @media(max-width:768px){
-    header h1 {
-        font-size: 30px;
-    }
-
-    header p {
-        font-size: 16px;
-    }
-
-    .logo {
-        width: 75px;
-    }
-
-    .map-container {
-        height: 180px;
-    }
-
-    .moving-tuk {
-        offset-path: path("M 280,120 Q 180,30 45,70");
-    }
-
-    .node-passenger {
-        top: 65%;
-        left: 85%;
-    }
-
-    .node-driver {
-        top: 35%;
-        left: 15%;
-    }
-
-    .card h2, .download h2, .map-card h2 {
-        font-size: 19px;
-    }
-
-    .card p, .download p {
-        font-size: 14px;
-    }
-
-    .feature {
-        min-width: 100%;
-    }
+    header h1 { font-size: 30px; }
+    .map-container { height: 180px; }
+    .moving-tuk { offset-path: path("M 280,120 Q 180,30 45,70"); }
 }
 
 </style>
@@ -534,41 +467,32 @@ footer p {
 
 <div class="container">
 
-    <!-- Interactive City Map Section -->
+    <!-- Map Section -->
     <div class="map-card glass-panel">
         <h2 id="mapTitle">تتبع رحلتك لحظة بلحظة</h2>
         <p class="subtitle" id="mapSubtitle">ربط مباشر وسريع بين الراكب والسائق عبر الخريطة الذكية</p>
 
         <div class="map-container">
-            <!-- Simulated Roads Layout -->
             <div class="city-map-bg"></div>
 
             <svg class="route-svg" viewBox="0 0 650 220">
-                <!-- Curved Route Path -->
                 <path class="route-line-bg" d="M 552,143 Q 325,40 98,77" />
                 <path class="route-line-animated" d="M 552,143 Q 325,40 98,77" />
             </svg>
 
-            <!-- Passenger Pin -->
             <div class="node node-passenger">
-                <div class="node-icon">
-                    <div class="pulse-ring"></div>
-                    👤
-                </div>
+                <div class="node-icon">👤</div>
                 <div class="node-label" id="passengerLabel">موقع العميل</div>
             </div>
 
-            <!-- Driver Pin -->
             <div class="node node-driver">
-                <div class="node-icon">
-                    <div class="pulse-ring"></div>
-                    🚖
-                </div>
+                <div class="node-icon">🚖</div>
                 <div class="node-label" id="driverLabel">السائق القريب</div>
             </div>
 
-            <!-- Moving Tuk Tuk -->
-            <div class="moving-tuk">🛺</div>
+            <div class="moving-tuk-wrapper">
+                <div class="moving-tuk">🛺</div>
+            </div>
         </div>
     </div>
 
@@ -614,13 +538,8 @@ footer p {
     </div>
 
     <div class="buttons">
-        <a href="privacy.html" class="btn" id="privacyBtn">
-            سياسة الخصوصية
-        </a>
-
-        <a href="delete-account.html" class="btn" id="deleteBtn">
-            حذف الحساب
-        </a>
+        <a href="privacy.html" class="btn" id="privacyBtn">سياسة الخصوصية</a>
+        <a href="delete-account.html" class="btn" id="deleteBtn">حذف الحساب</a>
     </div>
 
 </div>
@@ -632,16 +551,12 @@ footer p {
 </footer>
 
 <script>
-
 let english = false;
 
 function toggleLanguage(){
     english = !english;
 
     if(english){
-        document.documentElement.lang = "en";
-        document.documentElement.dir = "ltr";
-
         document.querySelector(".lang-btn").innerText = "العربية";
 
         document.getElementById("subtitle").innerText = "Easy & Fast Tuk Tuk Booking";
@@ -673,9 +588,6 @@ function toggleLanguage(){
 
         document.getElementById("supportText").innerText = "Support Email";
     } else {
-        document.documentElement.lang = "ar";
-        document.documentElement.dir = "rtl";
-
         document.querySelector(".lang-btn").innerText = "English";
 
         document.getElementById("subtitle").innerText = "تطبيق طلب التوك توك بسهولة وسرعة";
@@ -708,7 +620,6 @@ function toggleLanguage(){
         document.getElementById("supportText").innerText = "البريد الإلكتروني للدعم";
     }
 }
-
 </script>
 
 </body>
