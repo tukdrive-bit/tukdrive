@@ -230,47 +230,38 @@ header p {
     100% { stroke-dashoffset: 0; }
 }
 
-/* حركة التوك توك الثابتة والمستقرة (بدون انقلاب وبدون سير للخلف) */
+/* حركة التوك توك: الذهاب والعودة بوشه تماماً بدون مقلوب */
 .tuk-moving-group {
-    offset-rotate: auto;
-    animation: tukLoop 8s ease-in-out infinite;
-}
-
-.tuk-moving-group text {
-    display: block;
-    animation: tukFlip 8s ease-in-out infinite;
+    animation: tukLoop 8s linear infinite;
 }
 
 @keyframes tukLoop {
-    /* رحلة الذهاب إلى العميل */
+    /* رحلة الذهاب من السائق (120) إلى العميل (530) - بوشه العادي */
     0% {
+        offset-path: path('M 120,130 Q 325,10 530,130');
         offset-distance: 0%;
-    }
-    45% {
-        offset-distance: 100%;
-    }
-    /* التوقف لحظة الاستدارة عند العميل */
-    50% {
-        offset-distance: 100%;
-    }
-    /* رحلة العودة إلى السائق */
-    95% {
-        offset-distance: 0%;
-    }
-    100% {
-        offset-distance: 0%;
-    }
-}
-
-/* الانعكاس الأفقي التلقائي للتوك توك للذهاب والإياد بوجهه */
-@keyframes tukFlip {
-    0%, 48% {
         transform: scaleX(1);
     }
-    50%, 98% {
-        transform: scaleX(-1);
+    48% {
+        offset-path: path('M 120,130 Q 325,10 530,130');
+        offset-distance: 100%;
+        transform: scaleX(1);
+    }
+    /* الاستدارة عند الوصول للعميل لتغيير المسار والانعكاس للرجوع بوشه */
+    50% {
+        offset-path: path('M 530,130 Q 325,250 120,130');
+        offset-distance: 0%;
+        transform: scaleX(1);
+    }
+    /* رحلة العودة من العميل (530) إلى السائق (120) عبر مسار سفلي مقلوب لضمان الحركة بوشه */
+    98% {
+        offset-path: path('M 530,130 Q 325,250 120,130');
+        offset-distance: 100%;
+        transform: scaleX(1);
     }
     100% {
+        offset-path: path('M 120,130 Q 325,10 530,130');
+        offset-distance: 0%;
         transform: scaleX(1);
     }
 }
@@ -669,8 +660,8 @@ footer p {
                     <text id="passengerLabel" y="38" font-size="10" font-weight="bold" fill="#ffcc00" text-anchor="middle">موقع العميل</text>
                 </g>
 
-                <!-- حركة التوك توك المتناسقة والمستقرة جداً -->
-                <g class="tuk-moving-group" style="offset-path: path('M 120,130 Q 325,10 530,130');">
+                <!-- حركة التوك توك (ذهاب وعودة بوجهه دائماً) -->
+                <g class="tuk-moving-group">
                     <text font-size="28" text-anchor="middle" dominant-baseline="central">🛺</text>
                 </g>
             </svg>
