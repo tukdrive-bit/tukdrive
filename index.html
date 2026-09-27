@@ -285,19 +285,24 @@ header p {
     white-space: nowrap;
 }
 
-/* حركة التوك توك بالدوران الصحيح (بوجهه دائماً أثناء الذهاب والعودة) */
+/* التوك توك مع مسار حركة دقيق ومطابق للمسار المكتوب */
 .moving-tuk {
     position: absolute;
+    top: 0;
+    left: 0;
     z-index: 5;
     font-size: 32px;
-    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
     offset-path: path("M 98,77 Q 325,40 552,143");
     animation: driveTuk 8s infinite ease-in-out;
     filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.8));
 }
 
 @keyframes driveTuk {
-    /* الذهاب جهة اليمين (نحو العميل) مع توجيه الوجه لليمين عبر scaleX(-1) */
+    /* الذهاب لليمين نحو العميل بوجهه للأمام */
     0% {
         offset-distance: 0%;
         transform: scaleX(-1);
@@ -306,16 +311,15 @@ header p {
         offset-distance: 95%;
         transform: scaleX(-1);
     }
-    /* الدوران للعودة بقلب الإيجابي scaleX(1) للتحرك بوجهه نحو اليسار (السائق) */
+    /* الدوران للعودة بوجهه للأمام نحو اليسار */
     50% {
-        offset-distance: 100%;
+        offset-distance: 95%;
         transform: scaleX(1);
     }
     95% {
-        offset-distance: 5%;
+        offset-distance: 0%;
         transform: scaleX(1);
     }
-    /* إعادة التوجيه لرحلة الذهاب الجديدة */
     100% {
         offset-distance: 0%;
         transform: scaleX(-1);
@@ -617,7 +621,7 @@ footer p {
     .nav-links a { display: none; }
     .driver-banner { text-align: center; justify-content: center; }
     .map-container { height: 180px; }
-    .moving-tuk { offset-path: path("M 45,70 Q 180,30 280,120"); }
+    .moving-tuk { font-size: 26px; }
     .app-screenshot-wrapper { height: 380px; }
 }
 
@@ -659,7 +663,7 @@ footer p {
         <div class="map-container">
             <div class="city-map-bg"></div>
 
-            <svg class="route-svg" viewBox="0 0 650 220">
+            <svg class="route-svg" viewBox="0 0 650 220" preserveAspectRatio="none">
                 <path class="route-line-bg" d="M 98,77 Q 325,40 552,143" />
                 <path class="route-line-animated" d="M 98,77 Q 325,40 552,143" />
             </svg>
