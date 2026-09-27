@@ -285,36 +285,43 @@ header p {
     white-space: nowrap;
 }
 
-/* حركة التوك توك المعدلة للتحرك بجهة الوجه دائماً والدوران عند العودة */
+/* عنصر التوك توك المعدل بستايل محدد للحركة والالتفاف الضمان */
 .moving-tuk {
     position: absolute;
     z-index: 5;
-    font-size: 30px;
-    /* المسار من اليسار (السائق) إلى اليمين (العميل) */
+    width: 45px;
+    height: 35px;
     offset-path: path("M 98,77 Q 325,40 552,143");
-    offset-rotate: 0deg;
     animation: driveTuk 8s infinite ease-in-out;
-    filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.8));
+    filter: drop-shadow(0 0 6px rgba(255, 204, 0, 0.8));
+}
+
+.tuk-svg {
+    width: 100%;
+    height: 100%;
 }
 
 @keyframes driveTuk {
-    /* بداية الحركة من السائق menuju العميل (وجهه لليمين) */
+    /* الذهاب نحو العميل (الوجه متحه لليمين دائماً للأمام) */
     0% {
         offset-distance: 0%;
         transform: scaleX(1);
     }
-    48% {
+    45% {
+        offset-distance: 95%;
         transform: scaleX(1);
     }
-    /* الوصول للعميل والالتفاف (عكس اتجاه الوجه لليسار) */
+    /* الدوران للعودة */
     50% {
         offset-distance: 100%;
         transform: scaleX(-1);
     }
-    98% {
+    /* العودة نحو السائق (الوجه يتجه لليسار للأمام) */
+    95% {
+        offset-distance: 5%;
         transform: scaleX(-1);
     }
-    /* العودة للسائق والالتفاف مجدداً */
+    /* الدوران للبدء مجدداً */
     100% {
         offset-distance: 0%;
         transform: scaleX(1);
@@ -673,7 +680,23 @@ footer p {
                 <div class="node-label" id="driverLabel">السائق القريب</div>
             </div>
 
-            <div class="moving-tuk">🛺</div>
+            <!-- رسم التوك توك المتجه لليمين صراحة بدلاً من الإيموجي -->
+            <div class="moving-tuk">
+                <svg class="tuk-svg" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- جسم التوك توك -->
+                    <path d="M 10 40 L 20 15 L 60 15 L 85 30 L 90 45 L 80 48 L 10 48 Z" fill="#ffcc00" stroke="#000" stroke-width="2"/>
+                    <!-- السقف -->
+                    <path d="M 18 15 L 62 15 L 55 5 L 25 5 Z" fill="#111" />
+                    <!-- الزجاج الأمامي (الوجه نحو اليمين) -->
+                    <polygon points="60,17 80,30 60,30" fill="#a0e0ff" stroke="#000" stroke-width="1.5"/>
+                    <!-- العجلة الخلفية -->
+                    <circle cx="25" cy="50" r="10" fill="#222" stroke="#fff" stroke-width="2"/>
+                    <!-- العجلة الأمامية (الوجه) -->
+                    <circle cx="75" cy="50" r="10" fill="#222" stroke="#fff" stroke-width="2"/>
+                    <!-- الكشاف الأمامي -->
+                    <circle cx="87" cy="38" r="3" fill="#ffffff" />
+                </svg>
+            </div>
         </div>
     </div>
 
