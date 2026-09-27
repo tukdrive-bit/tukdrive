@@ -8,7 +8,7 @@
 <title>TukDrive - منصة طلب التوك توك الذكية</title>
 
 <meta name="description" content="TukDrive - Smart Tuk Tuk Booking Platform">
-<meta name="theme-color" content="#d4af37">
+<meta name="theme-color" content="#ffcc00">
 
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
@@ -28,31 +28,32 @@
 
 body {
     font-family: 'Cairo', sans-serif;
-    background: #f8f5ee;
+    /* خلفية داكنة خفيفة وأنيقة */
+    background: #181c24;
     background-image: 
-        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
-        radial-gradient(circle at 90% 80%, rgba(255, 204, 0, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, #fdfbf7 0%, #f3ece0 100%);
+        radial-gradient(circle at 15% 15%, rgba(255, 204, 0, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(255, 204, 0, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, #202632 0%, #14171f 100%);
     background-attachment: fixed;
-    color: #2c2a29;
+    color: #f0f0f0;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
 /* Glassmorphism Panel */
 .glass-panel {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(212, 175, 55, 0.35);
-    box-shadow: 0 10px 30px rgba(184, 134, 11, 0.08), 0 2px 10px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(255, 204, 0, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     border-radius: 24px;
     transition: all 0.3s ease;
 }
 
 .glass-panel:hover {
-    border-color: rgba(212, 175, 55, 0.6);
-    box-shadow: 0 14px 40px rgba(184, 134, 11, 0.15);
+    border-color: rgba(255, 204, 0, 0.5);
+    box-shadow: 0 12px 35px rgba(255, 204, 0, 0.12);
 }
 
 /* Language Button */
@@ -61,11 +62,11 @@ body {
     top: 20px;
     left: 20px;
     z-index: 999;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 204, 0, 0.15);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    color: #5c4811;
-    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #ffcc00;
+    border: 1px solid rgba(255, 204, 0, 0.4);
     padding: 8px 20px;
     border-radius: 30px;
     cursor: pointer;
@@ -73,13 +74,12 @@ body {
     font-family: 'Cairo', sans-serif;
     font-size: 14px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .lang-btn:hover {
-    background: #d4af37;
-    color: #fff;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    background: #ffcc00;
+    color: #000;
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
     transform: translateY(-2px);
 }
 
@@ -94,7 +94,7 @@ header {
     height: auto;
     display: block;
     margin: 0 auto 12px auto;
-    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.12));
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
     transition: transform 0.3s ease;
 }
 
@@ -102,28 +102,37 @@ header {
     transform: scale(1.05);
 }
 
+/* Tukبالأصفر و Drive بالأبيض */
 header h1 {
-    font-size: 34px;
+    font-size: 38px;
     font-weight: 900;
-    color: #1f1d1d;
     margin-bottom: 4px;
-    letter-spacing: -0.5px;
+    letter-spacing: 0.5px;
+}
+
+.txt-tuk {
+    color: #ffcc00;
+    text-shadow: 0 0 12px rgba(255, 204, 0, 0.3);
+}
+
+.txt-drive {
+    color: #ffffff;
 }
 
 header p {
     font-size: 18px;
-    color: #635845;
-    font-weight: 700;
+    color: #d1d5db;
+    font-weight: 600;
 }
 
-/* Container */
+/* Container Layout */
 .container {
     max-width: 920px;
     margin: auto;
     padding: 15px 20px 50px 20px;
 }
 
-/* Creative Interactive Map Section */
+/* Map Card */
 .map-card {
     padding: 30px 20px;
     text-align: center;
@@ -134,44 +143,52 @@ header p {
 
 .map-card h2 {
     font-size: 22px;
-    color: #8a6d1c;
+    color: #ffcc00;
     margin-bottom: 6px;
     font-weight: 800;
 }
 
 .map-card p.subtitle {
     font-size: 15px;
-    color: #666;
+    color: #ccc;
     margin-bottom: 25px;
 }
 
+/* Map Graphics Container */
 .map-container {
     position: relative;
     width: 100%;
     max-width: 650px;
-    height: 200px;
+    height: 220px;
     margin: 0 auto;
-    background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(245,238,220,0.6));
+    background: #12161f;
     border-radius: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(255, 204, 0, 0.3);
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.8);
     overflow: hidden;
 }
 
-/* Stylized Grid Lines for Map */
-.map-bg-grid {
+/* Simulated City Map Design (شوارع ومباني الخريطة) */
+.city-map-bg {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+    opacity: 0.25;
+    background-color: #12161f;
     background-image: 
-        linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px);
-    background-size: 30px 30px;
+        /* Main Roads */
+        linear-gradient(rgba(255, 255, 255, 0.3) 8px, transparent 8px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.3) 8px, transparent 8px),
+        /* Secondary Grid */
+        linear-gradient(rgba(255, 204, 0, 0.2) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255, 204, 0, 0.2) 2px, transparent 2px);
+    background-size: 120px 120px, 120px 120px, 30px 30px, 30px 30px;
+    background-position: -10px -10px, -10px -10px, -1px -1px, -1px -1px;
 }
 
-/* SVG Connecting Route Path */
+/* SVG Route Path */
 .route-svg {
     position: absolute;
     top: 0;
@@ -183,17 +200,18 @@ header p {
 
 .route-line-bg {
     fill: none;
-    stroke: rgba(212, 175, 55, 0.25);
+    stroke: rgba(255, 204, 0, 0.2);
     stroke-width: 4;
     stroke-dasharray: 6 6;
 }
 
 .route-line-animated {
     fill: none;
-    stroke: url(#goldGradient);
+    stroke: #ffcc00;
     stroke-width: 4;
     stroke-dasharray: 12 12;
     animation: moveRoute 2s linear infinite;
+    filter: drop-shadow(0 0 6px rgba(255, 204, 0, 0.8));
 }
 
 @keyframes moveRoute {
@@ -201,7 +219,7 @@ header p {
     100% { stroke-dashoffset: 0; }
 }
 
-/* Pin Nodes */
+/* Nodes on Map */
 .node {
     position: absolute;
     z-index: 3;
@@ -222,16 +240,16 @@ header p {
 }
 
 .node-icon {
-    width: 46px;
-    height: 46px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: #ffffff;
-    border: 2px solid #d4af37;
+    background: #1a1e29;
+    border: 2px solid #ffcc00;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
-    box-shadow: 0 6px 16px rgba(212, 175, 55, 0.35);
+    font-size: 20px;
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
     position: relative;
 }
 
@@ -240,36 +258,35 @@ header p {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 2px solid #ffd700;
+    border: 2px solid #ffcc00;
     animation: pulse 1.8s infinite ease-out;
 }
 
 @keyframes pulse {
     0% { transform: scale(1); opacity: 0.8; }
-    100% { transform: scale(1.6); opacity: 0; }
+    100% { transform: scale(1.7); opacity: 0; }
 }
 
 .node-label {
     margin-top: 6px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(20, 24, 33, 0.9);
     padding: 3px 10px;
     border-radius: 12px;
     font-size: 12px;
     font-weight: 700;
-    color: #4a3b10;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #ffcc00;
+    border: 1px solid rgba(255, 204, 0, 0.3);
     white-space: nowrap;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-/* Moving Tuk Tuk on Map */
+/* Moving Tuk Tuk */
 .moving-tuk {
     position: absolute;
     z-index: 4;
     font-size: 24px;
-    offset-path: path("M 520,130 Q 325,30 95,70");
+    offset-path: path("M 520,140 Q 325,40 95,80");
     animation: driveTuk 4s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.9));
 }
 
 @keyframes driveTuk {
@@ -289,17 +306,17 @@ header p {
 .card h2 {
     font-size: 22px;
     margin-bottom: 10px;
-    color: #8a6d1c;
+    color: #ffcc00;
     font-weight: 800;
 }
 
 .card p {
     font-size: 16px;
     line-height: 1.8;
-    color: #444;
+    color: #e5e7eb;
 }
 
-/* Features Section */
+/* Features Grid */
 .features {
     display: flex;
     flex-wrap: wrap;
@@ -317,13 +334,13 @@ header p {
 .feature h3 {
     font-size: 18px;
     margin-bottom: 8px;
-    color: #1f1d1d;
+    color: #ffcc00;
     font-weight: 800;
 }
 
 .feature p {
     font-size: 14px;
-    color: #555;
+    color: #d1d5db;
     line-height: 1.6;
 }
 
@@ -336,14 +353,14 @@ header p {
 
 .download h2 {
     font-size: 22px;
-    color: #8a6d1c;
+    color: #ffcc00;
     margin-bottom: 8px;
     font-weight: 800;
 }
 
 .download p {
     font-size: 15px;
-    color: #555;
+    color: #d1d5db;
     line-height: 1.6;
 }
 
@@ -362,33 +379,34 @@ header p {
     justify-content: center;
     padding: 12px 26px;
     border-radius: 30px;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 15px;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
+/* أزرار باللون الأصفر الجذاب */
 .android-btn {
-    background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
-    color: #1a1708;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: linear-gradient(135deg, #ffcc00 0%, #e6b800 100%);
+    color: #111;
+    box-shadow: 0 4px 18px rgba(255, 204, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .android-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-    background: linear-gradient(135deg, #e6c247 0%, #ffe033 100%);
+    box-shadow: 0 6px 22px rgba(255, 204, 0, 0.5);
+    background: linear-gradient(135deg, #ffd633 0%, #ffcc00 100%);
 }
 
 .ios-btn {
-    background: rgba(230, 230, 230, 0.6);
+    background: rgba(255, 255, 255, 0.05);
     color: #888;
-    border: 1px solid rgba(200, 200, 200, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     cursor: not-allowed;
 }
 
-/* Buttons Links */
+/* Policy and Action Buttons */
 .buttons {
     text-align: center;
     margin-top: 30px;
@@ -401,23 +419,23 @@ header p {
 .btn {
     display: inline-block;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.75);
-    color: #634f14;
+    background: rgba(255, 204, 0, 0.1);
+    color: #ffcc00;
     padding: 10px 22px;
     border-radius: 30px;
     font-size: 14px;
     font-weight: 700;
-    border: 1px solid rgba(212, 175, 55, 0.4);
+    border: 1px solid rgba(255, 204, 0, 0.4);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background: rgba(212, 175, 55, 0.18);
-    border-color: #d4af37;
-    color: #1f1d1d;
+    background: rgba(255, 204, 0, 0.25);
+    color: #fff;
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.2);
 }
 
 /* Footer */
@@ -425,11 +443,11 @@ footer {
     text-align: center;
     padding: 30px 20px;
     margin-top: 40px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(15, 18, 25, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
-    color: #666;
+    border-top: 1px solid rgba(255, 204, 0, 0.2);
+    color: #9ca3af;
 }
 
 footer p {
@@ -438,15 +456,15 @@ footer p {
 }
 
 .email {
-    color: #8a6d1c;
+    color: #ffcc00;
     font-weight: 700;
     font-size: 15px;
 }
 
-/* Mobile Responsiveness */
+/* Responsive Styles */
 @media(max-width:768px){
     header h1 {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     header p {
@@ -458,11 +476,11 @@ footer p {
     }
 
     .map-container {
-        height: 170px;
+        height: 180px;
     }
 
     .moving-tuk {
-        offset-path: path("M 280,110 Q 180,25 45,60");
+        offset-path: path("M 280,120 Q 180,30 45,70");
     }
 
     .node-passenger {
@@ -497,33 +515,28 @@ footer p {
 
 <header>
     <img src="logo.png" alt="TukDrive" class="logo">
-    <h1 id="title">TukDrive</h1>
+    <h1 id="title"><span class="txt-tuk">Tuk</span><span class="txt-drive">Drive</span></h1>
     <p id="subtitle">تطبيق طلب التوك توك بسهولة وسرعة</p>
 </header>
 
 <div class="container">
 
-    <!-- Creative Map Section -->
+    <!-- Interactive City Map Section -->
     <div class="map-card glass-panel">
         <h2 id="mapTitle">تتبع رحلتك لحظة بلحظة</h2>
-        <p class="subtitle" id="mapSubtitle">ربط مباشر وسريع بين الركب والسائق عبر الخريطة الذكية</p>
+        <p class="subtitle" id="mapSubtitle">ربط مباشر وسريع بين الراكب والسائق عبر الخريطة الذكية</p>
 
         <div class="map-container">
-            <div class="map-bg-grid"></div>
+            <!-- Simulated Roads Layout -->
+            <div class="city-map-bg"></div>
 
-            <svg class="route-svg" viewBox="0 0 650 200">
-                <defs>
-                    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stop-color="#ffd700" />
-                        <stop offset="100%" stop-color="#d4af37" />
-                    </linearGradient>
-                </defs>
-                <!-- Curved Route Line -->
-                <path class="route-line-bg" d="M 520,130 Q 325,30 95,70" />
-                <path class="route-line-animated" d="M 520,130 Q 325,30 95,70" />
+            <svg class="route-svg" viewBox="0 0 650 220">
+                <!-- Curved Route Path -->
+                <path class="route-line-bg" d="M 520,140 Q 325,40 95,80" />
+                <path class="route-line-animated" d="M 520,140 Q 325,40 95,80" />
             </svg>
 
-            <!-- Passenger Node -->
+            <!-- Passenger Pin -->
             <div class="node node-passenger">
                 <div class="node-icon">
                     <div class="pulse-ring"></div>
@@ -532,7 +545,7 @@ footer p {
                 <div class="node-label" id="passengerLabel">موقع العميل</div>
             </div>
 
-            <!-- Driver Node -->
+            <!-- Driver Pin -->
             <div class="node node-driver">
                 <div class="node-icon">
                     <div class="pulse-ring"></div>
@@ -541,7 +554,7 @@ footer p {
                 <div class="node-label" id="driverLabel">السائق القريب</div>
             </div>
 
-            <!-- Animated Tuk Tuk -->
+            <!-- Moving Tuk Tuk -->
             <div class="moving-tuk">🛺</div>
         </div>
     </div>
