@@ -5,10 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>حذف الحساب | TukDrive</title>
+<title>TukDrive</title>
 
-<meta name="description" content="صفحة حذف الحساب الخاصة بتطبيق TukDrive وشرح خطوات حذف الحساب والبيانات المرتبطة به.">
-
+<meta name="description" content="TukDrive - Smart Tuk Tuk Booking Platform">
 <meta name="theme-color" content="#ffcc00">
 
 <link rel="icon" type="image/png" href="logo.png">
@@ -28,185 +27,312 @@ body{
     color:#222;
 }
 
+.lang-btn{
+    position:fixed;
+    top:15px;
+    left:15px;
+    z-index:999;
+    background:#222;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
 .logo{
-    width:150px;
+    width:180px;
     max-width:80%;
     display:block;
-    margin:0 auto 15px auto;
+    margin:0 auto 20px auto;
 }
 
 header{
     background:#ffcc00;
     text-align:center;
-    padding:60px 20px;
+    padding:80px 20px;
 }
 
 header h1{
-    font-size:45px;
-    color:#111;
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+header p{
+    font-size:24px;
 }
 
 .container{
-    max-width:1000px;
+    max-width:1100px;
     margin:auto;
-    padding:30px 20px;
+    padding:40px 20px;
 }
 
 .card{
     background:white;
-    padding:35px;
+    padding:40px;
     border-radius:20px;
+    box-shadow:0 0 15px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+.card h2{
+    margin-bottom:20px;
+}
+
+.card p{
+    font-size:22px;
+    line-height:1.8;
+}
+
+.features{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:40px;
+}
+
+.feature{
+    flex:1;
+    min-width:250px;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 10px rgba(0,0,0,.08);
+}
+
+.feature h3{
+    margin-bottom:15px;
+}
+
+.download{
+    background:white;
+    margin-top:40px;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
     box-shadow:0 0 15px rgba(0,0,0,.08);
 }
 
-.card p,
-.card li{
-    font-size:18px;
-    line-height:1.9;
-}
-
-h2{
+.download-buttons{
     margin-top:25px;
-    margin-bottom:15px;
-    color:#111;
 }
 
-ol,
-ul{
-    padding-right:25px;
-}
-
-.email{
+.android-btn,
+.ios-btn{
     display:inline-block;
-    background:#fff4b8;
-    padding:15px 20px;
+    margin:10px;
+    text-decoration:none;
+    padding:15px 25px;
     border-radius:12px;
-    margin-top:10px;
     font-weight:bold;
-    color:#000;
 }
 
-.notice{
-    background:#fff8d9;
-    border-right:5px solid #ffcc00;
-    padding:18px;
-    margin-top:20px;
-    border-radius:12px;
-    line-height:1.8;
+.android-btn{
+    background:#34a853;
+    color:white;
+}
+
+.ios-btn{
+    background:#ccc;
+    color:#555;
+}
+
+.buttons{
+    text-align:center;
+    margin-top:40px;
 }
 
 .btn{
     display:inline-block;
-    margin-top:30px;
+    text-decoration:none;
     background:#ffcc00;
     color:black;
-    text-decoration:none;
-    padding:14px 28px;
+    padding:15px 30px;
     border-radius:12px;
     font-weight:bold;
-    transition:.3s;
-}
-
-.btn:hover{
-    background:#e6b800;
-    transform:translateY(-2px);
+    margin:10px;
 }
 
 footer{
     text-align:center;
-    padding:30px;
-    margin-top:40px;
+    padding:40px 20px;
+    margin-top:50px;
     background:#222;
     color:white;
 }
 
+.email{
+    color:#ffcc00;
+    font-weight:bold;
+}
+
 @media(max-width:768px){
 
-    .logo{
-        width:120px;
-    }
-
     header h1{
-        font-size:34px;
+        font-size:42px;
     }
 
-    .card{
-        padding:25px;
+    header p{
+        font-size:20px;
     }
 
-    .card p,
-    .card li{
-        font-size:16px;
+    .card p{
+        font-size:18px;
     }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
+<button class="lang-btn" onclick="toggleLanguage()">English</button>
+
 <header>
 
-    <img src="logo.png" alt="TukDrive Logo" class="logo">
+<img src="logo.png" alt="TukDrive" class="logo">
 
-    <h1>حذف الحساب</h1>
+<h1 id="title">TukDrive</h1>
+
+<p id="subtitle">تطبيق طلب التوك توك بسهولة وسرعة</p>
 
 </header>
 
 <div class="container">
 
-    <div class="card">
+<div class="card">
 
-        <p>
-            إذا كنت ترغب في حذف حسابك وبياناتك المرتبطة بتطبيق TukDrive، يمكنك تقديم طلب حذف الحساب عبر البريد الإلكتروني التالي:
-        </p>
+<h2 id="welcome">مرحباً بك في TukDrive</h2>
 
-        <p class="email">
-            tukdrive.support@gmail.com
-        </p>
+<p id="description">
+TukDrive منصة ذكية تربط الركاب بالسائقين لتسهيل طلب رحلات التوك توك بطريقة آمنة وسريعة وموثوقة.
+</p>
 
-        <h2>خطوات طلب حذف الحساب</h2>
+</div>
 
-        <ol>
-            <li>أرسل رسالة إلى البريد الإلكتروني الموضح أعلاه.</li>
-            <li>اكتب عنوان الرسالة: طلب حذف حساب TukDrive.</li>
-            <li>اذكر رقم الهاتف أو البريد الإلكتروني المرتبط بالحساب.</li>
-            <li>سيتم التحقق من ملكية الحساب قبل تنفيذ الطلب.</li>
-            <li>ستتلقى إشعاراً عند اكتمال عملية الحذف.</li>
-        </ol>
+<div class="features">
 
-        <h2>البيانات التي يتم حذفها</h2>
+<div class="feature">
+<h3 id="f1">🚖 طلب رحلة بسهولة</h3>
+<p id="f1p">اطلب رحلة التوك توك بضغطة واحدة.</p>
+</div>
 
-        <ul>
-            <li>بيانات الملف الشخصي.</li>
-            <li>بيانات الحساب.</li>
-            <li>سجل استخدام التطبيق المرتبط بالحساب.</li>
-            <li>البيانات الشخصية المخزنة داخل التطبيق.</li>
-        </ul>
+<div class="feature">
+<h3 id="f2">📍 تحديد الموقع</h3>
+<p id="f2p">استخدام الموقع الحالي لتسهيل الوصول.</p>
+</div>
 
-        <div class="notice">
-            قد يتم الاحتفاظ ببعض السجلات لفترة محدودة إذا كان ذلك مطلوباً بموجب القوانين المعمول بها أو لأغراض الأمان ومنع الاحتيال.
-        </div>
+<div class="feature">
+<h3 id="f3">🔒 أمان وخصوصية</h3>
+<p id="f3p">نحافظ على بيانات المستخدمين وخصوصيتهم.</p>
+</div>
 
-        <h2>مدة تنفيذ الطلب</h2>
+</div>
 
-        <p>
-            يتم تنفيذ طلبات حذف الحساب خلال مدة لا تتجاوز 30 يوماً من تاريخ استلام الطلب والتحقق من ملكية الحساب.
-        </p>
+<div class="download">
 
-        <a href="https://tukdrive.com" class="btn">
-            العودة إلى الصفحة الرئيسية
-        </a>
+<h2 id="downloadTitle">تحميل التطبيق</h2>
 
-    </div>
+<p id="downloadDesc">
+نسخة أندرويد متاحة حالياً من خلال الموقع الرسمي.
+وسيتم إطلاق التطبيق على Google Play قريباً.
+</p>
+
+<div class="download-buttons">
+
+<a href="TukDrive.apk" class="android-btn" id="androidBtn">
+📱 تحميل للأندرويد
+</a>
+
+<a href="#" class="ios-btn" id="iosBtn">
+🍎 قريباً للآيفون
+</a>
+
+</div>
+
+</div>
+
+<div class="buttons">
+
+<a href="privacy.html" class="btn" id="privacyBtn">
+سياسة الخصوصية
+</a>
+
+<a href="delete-account.html" class="btn" id="deleteBtn">
+حذف الحساب
+</a>
+
+</div>
 
 </div>
 
 <footer>
-    © 2026 TukDrive. All Rights Reserved.
+
+<p id="supportText">البريد الإلكتروني للدعم</p>
+
+<p class="email">
+tukdrive.support@gmail.com
+</p>
+
+<br>
+
+<p>
+© 2026 TukDrive
+</p>
+
 </footer>
+
+<script>
+
+let english=false;
+
+function toggleLanguage(){
+
+english=!english;
+
+if(english){
+
+document.documentElement.lang="en";
+document.documentElement.dir="ltr";
+
+document.querySelector(".lang-btn").innerText="العربية";
+
+document.getElementById("subtitle").innerText="Easy & Fast Tuk Tuk Booking";
+document.getElementById("welcome").innerText="Welcome to TukDrive";
+document.getElementById("description").innerText="TukDrive connects passengers with drivers for safe, fast and reliable tuk tuk rides.";
+
+document.getElementById("f1").innerText="🚖 Easy Ride Booking";
+document.getElementById("f1p").innerText="Book your ride with one click.";
+
+document.getElementById("f2").innerText="📍 Location Access";
+document.getElementById("f2p").innerText="Use your current location easily.";
+
+document.getElementById("f3").innerText="🔒 Privacy & Security";
+document.getElementById("f3p").innerText="We protect your privacy and data.";
+
+document.getElementById("downloadTitle").innerText="Download App";
+document.getElementById("downloadDesc").innerText="Android version is available now. Google Play release is coming soon.";
+
+document.getElementById("androidBtn").innerText="📱 Download for Android";
+document.getElementById("iosBtn").innerText="🍎 Coming Soon";
+
+document.getElementById("privacyBtn").innerText="Privacy Policy";
+document.getElementById("deleteBtn").innerText="Delete Account";
+
+document.getElementById("supportText").innerText="Support Email";
+
+}else{
+
+location.reload();
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
