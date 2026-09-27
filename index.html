@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TukDrive</title>
+<title>TukDrive - منصة طلب التوك توك الذكية</title>
 
 <meta name="description" content="TukDrive - Smart Tuk Tuk Booking Platform">
 <meta name="theme-color" content="#d4af37">
@@ -16,7 +16,7 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -28,31 +28,31 @@
 
 body {
     font-family: 'Cairo', sans-serif;
-    /* خلفية فاتحة وأنيقة متدرجة بألوان دافئة وذهبية خفيفة */
-    background: #f8f4eb;
+    background: #f8f5ee;
     background-image: 
-        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(255, 204, 0, 0.1) 0%, transparent 45%),
-        radial-gradient(circle at 50% 50%, #fefcf7 0%, #f4eee0 100%);
+        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 90% 80%, rgba(255, 204, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, #fdfbf7 0%, #f3ece0 100%);
     background-attachment: fixed;
     color: #2c2a29;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
-/* Glassmorphic Light Panel */
+/* Glassmorphism Panel */
 .glass-panel {
-    background: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(212, 175, 55, 0.35);
     box-shadow: 0 10px 30px rgba(184, 134, 11, 0.08), 0 2px 10px rgba(0, 0, 0, 0.03);
-    border-radius: 20px;
+    border-radius: 24px;
     transition: all 0.3s ease;
 }
 
 .glass-panel:hover {
     border-color: rgba(212, 175, 55, 0.6);
-    box-shadow: 0 12px 35px rgba(184, 134, 11, 0.15);
+    box-shadow: 0 14px 40px rgba(184, 134, 11, 0.15);
 }
 
 /* Language Button */
@@ -64,9 +64,9 @@ body {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    color: #4a3b10;
+    color: #5c4811;
     border: 1px solid rgba(212, 175, 55, 0.4);
-    padding: 8px 18px;
+    padding: 8px 20px;
     border-radius: 30px;
     cursor: pointer;
     font-weight: 700;
@@ -86,16 +86,15 @@ body {
 /* Header Section */
 header {
     text-align: center;
-    padding: 40px 20px 20px 20px;
+    padding: 35px 20px 10px 20px;
 }
 
-/* حجم اللوجو متناسق وصغير */
 .logo {
-    width: 90px;
+    width: 85px;
     height: auto;
     display: block;
     margin: 0 auto 12px auto;
-    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.12));
     transition: transform 0.3s ease;
 }
 
@@ -104,28 +103,185 @@ header {
 }
 
 header h1 {
-    font-size: 32px;
-    font-weight: 800;
+    font-size: 34px;
+    font-weight: 900;
     color: #1f1d1d;
     margin-bottom: 4px;
+    letter-spacing: -0.5px;
 }
 
 header p {
     font-size: 18px;
-    color: #554e42;
+    color: #635845;
     font-weight: 700;
 }
 
-/* Container Layout */
+/* Container */
 .container {
-    max-width: 900px;
+    max-width: 920px;
     margin: auto;
-    padding: 10px 20px 50px 20px;
+    padding: 15px 20px 50px 20px;
+}
+
+/* Creative Interactive Map Section */
+.map-card {
+    padding: 30px 20px;
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-card h2 {
+    font-size: 22px;
+    color: #8a6d1c;
+    margin-bottom: 6px;
+    font-weight: 800;
+}
+
+.map-card p.subtitle {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    height: 200px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(245,238,220,0.6));
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.08);
+    overflow: hidden;
+}
+
+/* Stylized Grid Lines for Map */
+.map-bg-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: 
+        linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+/* SVG Connecting Route Path */
+.route-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.route-line-bg {
+    fill: none;
+    stroke: rgba(212, 175, 55, 0.25);
+    stroke-width: 4;
+    stroke-dasharray: 6 6;
+}
+
+.route-line-animated {
+    fill: none;
+    stroke: url(#goldGradient);
+    stroke-width: 4;
+    stroke-dasharray: 12 12;
+    animation: moveRoute 2s linear infinite;
+}
+
+@keyframes moveRoute {
+    0% { stroke-dashoffset: 24; }
+    100% { stroke-dashoffset: 0; }
+}
+
+/* Pin Nodes */
+.node {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
+
+.node-passenger {
+    top: 65%;
+    right: 15%;
+}
+
+.node-driver {
+    top: 35%;
+    left: 15%;
+}
+
+.node-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #d4af37;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 6px 16px rgba(212, 175, 55, 0.35);
+    position: relative;
+}
+
+.pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #ffd700;
+    animation: pulse 1.8s infinite ease-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+.node-label {
+    margin-top: 6px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #4a3b10;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Moving Tuk Tuk on Map */
+.moving-tuk {
+    position: absolute;
+    z-index: 4;
+    font-size: 24px;
+    offset-path: path("M 520,130 Q 325,30 95,70");
+    animation: driveTuk 4s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+@keyframes driveTuk {
+    0% { offset-distance: 0%; transform: scaleX(-1); }
+    50% { offset-distance: 100%; transform: scaleX(-1); }
+    50.1% { transform: scaleX(1); }
+    100% { offset-distance: 0%; transform: scaleX(1); }
 }
 
 /* Welcome Card */
 .card {
-    padding: 25px 30px;
+    padding: 28px 30px;
     text-align: center;
     margin-bottom: 25px;
 }
@@ -134,6 +290,7 @@ header p {
     font-size: 22px;
     margin-bottom: 10px;
     color: #8a6d1c;
+    font-weight: 800;
 }
 
 .card p {
@@ -142,7 +299,7 @@ header p {
     color: #444;
 }
 
-/* Features Grid */
+/* Features Section */
 .features {
     display: flex;
     flex-wrap: wrap;
@@ -153,7 +310,7 @@ header p {
 .feature {
     flex: 1;
     min-width: 250px;
-    padding: 22px 20px;
+    padding: 24px 20px;
     text-align: center;
 }
 
@@ -161,7 +318,7 @@ header p {
     font-size: 18px;
     margin-bottom: 8px;
     color: #1f1d1d;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .feature p {
@@ -170,7 +327,7 @@ header p {
     line-height: 1.6;
 }
 
-/* Download Card */
+/* Download Section */
 .download {
     margin-top: 25px;
     padding: 30px 20px;
@@ -181,6 +338,7 @@ header p {
     font-size: 22px;
     color: #8a6d1c;
     margin-bottom: 8px;
+    font-weight: 800;
 }
 
 .download p {
@@ -190,7 +348,7 @@ header p {
 }
 
 .download-buttons {
-    margin-top: 20px;
+    margin-top: 22px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -202,7 +360,7 @@ header p {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 24px;
+    padding: 12px 26px;
     border-radius: 30px;
     font-weight: 700;
     font-size: 15px;
@@ -230,7 +388,7 @@ header p {
     cursor: not-allowed;
 }
 
-/* Policy & Action Buttons */
+/* Buttons Links */
 .buttons {
     text-align: center;
     margin-top: 30px;
@@ -243,7 +401,7 @@ header p {
 .btn {
     display: inline-block;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.75);
     color: #634f14;
     padding: 10px 22px;
     border-radius: 30px;
@@ -256,7 +414,7 @@ header p {
 }
 
 .btn:hover {
-    background: rgba(212, 175, 55, 0.15);
+    background: rgba(212, 175, 55, 0.18);
     border-color: #d4af37;
     color: #1f1d1d;
     transform: translateY(-2px);
@@ -285,10 +443,10 @@ footer p {
     font-size: 15px;
 }
 
-/* Mobile Responsive */
+/* Mobile Responsiveness */
 @media(max-width:768px){
     header h1 {
-        font-size: 26px;
+        font-size: 28px;
     }
 
     header p {
@@ -299,7 +457,25 @@ footer p {
         width: 75px;
     }
 
-    .card h2, .download h2 {
+    .map-container {
+        height: 170px;
+    }
+
+    .moving-tuk {
+        offset-path: path("M 280,110 Q 180,25 45,60");
+    }
+
+    .node-passenger {
+        top: 65%;
+        right: 10%;
+    }
+
+    .node-driver {
+        top: 35%;
+        left: 10%;
+    }
+
+    .card h2, .download h2, .map-card h2 {
         font-size: 19px;
     }
 
@@ -326,6 +502,49 @@ footer p {
 </header>
 
 <div class="container">
+
+    <!-- Creative Map Section -->
+    <div class="map-card glass-panel">
+        <h2 id="mapTitle">تتبع رحلتك لحظة بلحظة</h2>
+        <p class="subtitle" id="mapSubtitle">ربط مباشر وسريع بين الركب والسائق عبر الخريطة الذكية</p>
+
+        <div class="map-container">
+            <div class="map-bg-grid"></div>
+
+            <svg class="route-svg" viewBox="0 0 650 200">
+                <defs>
+                    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#ffd700" />
+                        <stop offset="100%" stop-color="#d4af37" />
+                    </linearGradient>
+                </defs>
+                <!-- Curved Route Line -->
+                <path class="route-line-bg" d="M 520,130 Q 325,30 95,70" />
+                <path class="route-line-animated" d="M 520,130 Q 325,30 95,70" />
+            </svg>
+
+            <!-- Passenger Node -->
+            <div class="node node-passenger">
+                <div class="node-icon">
+                    <div class="pulse-ring"></div>
+                    👤
+                </div>
+                <div class="node-label" id="passengerLabel">موقع العميل</div>
+            </div>
+
+            <!-- Driver Node -->
+            <div class="node node-driver">
+                <div class="node-icon">
+                    <div class="pulse-ring"></div>
+                    🚖
+                </div>
+                <div class="node-label" id="driverLabel">السائق القريب</div>
+            </div>
+
+            <!-- Animated Tuk Tuk -->
+            <div class="moving-tuk">🛺</div>
+        </div>
+    </div>
 
     <div class="card glass-panel">
         <h2 id="welcome">مرحباً بك في TukDrive</h2>
@@ -383,7 +602,6 @@ footer p {
 <footer>
     <p id="supportText">البريد الإلكتروني للدعم</p>
     <p class="email">tukdrive.support@gmail.com</p>
-
     <p>© 2026 TukDrive</p>
 </footer>
 
@@ -401,6 +619,11 @@ function toggleLanguage(){
         document.querySelector(".lang-btn").innerText = "العربية";
 
         document.getElementById("subtitle").innerText = "Easy & Fast Tuk Tuk Booking";
+        document.getElementById("mapTitle").innerText = "Track Your Ride Live";
+        document.getElementById("mapSubtitle").innerText = "Direct smart map connection between passenger and driver";
+        document.getElementById("passengerLabel").innerText = "Passenger";
+        document.getElementById("driverLabel").innerText = "Nearby Driver";
+
         document.getElementById("welcome").innerText = "Welcome to TukDrive";
         document.getElementById("description").innerText = "TukDrive connects passengers with drivers for safe, fast and reliable tuk tuk rides.";
 
