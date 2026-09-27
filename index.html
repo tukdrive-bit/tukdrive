@@ -190,33 +190,28 @@ header p {
     margin-bottom: 25px;
 }
 
+/* حاوية الخريطة التفاعلية المتجاوبة */
 .map-container {
     position: relative;
     width: 100%;
     max-width: 650px;
-    height: 220px;
+    aspect-ratio: 650 / 220;
     margin: 0 auto;
-    background: #11151e;
+    background: #151a24;
     border-radius: 16px;
     border: 1px solid rgba(255, 204, 0, 0.4);
     overflow: hidden;
     direction: ltr !important;
 }
 
+/* خلفية خريطة شوارع حقيقية تصميم Vector SVG */
 .city-map-bg {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    opacity: 0.35;
-    background-color: #11151e;
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.3) 6px, transparent 6px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.3) 6px, transparent 6px),
-        linear-gradient(rgba(255, 204, 0, 0.25) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(255, 204, 0, 0.25) 2px, transparent 2px);
-    background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
+    z-index: 1;
 }
 
 .route-svg {
@@ -230,21 +225,21 @@ header p {
 
 .route-line-bg {
     fill: none;
-    stroke: rgba(255, 204, 0, 0.25);
-    stroke-width: 4;
-    stroke-dasharray: 6 6;
+    stroke: rgba(255, 204, 0, 0.3);
+    stroke-width: 3;
+    stroke-dasharray: 4 4;
 }
 
 .route-line-animated {
     fill: none;
     stroke: #ffcc00;
-    stroke-width: 4;
-    stroke-dasharray: 12 12;
+    stroke-width: 3.5;
+    stroke-dasharray: 8 8;
     animation: moveRoute 3s linear infinite;
 }
 
 @keyframes moveRoute {
-    0% { stroke-dashoffset: 24; }
+    0% { stroke-dashoffset: 16; }
     100% { stroke-dashoffset: 0; }
 }
 
@@ -261,59 +256,65 @@ header p {
 .node-driver { top: 35%; left: 15%; }
 
 .node-icon {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background: #232a3b;
     border: 2px solid #ffcc00;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-    box-shadow: 0 0 12px rgba(255, 204, 0, 0.4);
+    font-size: 18px;
+    box-shadow: 0 0 12px rgba(255, 204, 0, 0.5);
 }
 
 .node-label {
-    margin-top: 6px;
-    background: #11151e;
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 12px;
+    margin-top: 4px;
+    background: rgba(17, 21, 30, 0.9);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
     font-weight: 700;
     color: #ffcc00;
     border: 1px solid rgba(255, 204, 0, 0.4);
     white-space: nowrap;
 }
 
-/* التوك توك مع مسار حركة دقيق ومطابق للمسار المكتوب */
+/* حركة التوك توك المتجاوبة 100% مع شاشات الكمبيوتر والهاتف */
 .moving-tuk {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -20px;
+    left: -20px;
     z-index: 5;
-    font-size: 32px;
+    font-size: 28px;
     width: 40px;
     height: 40px;
     line-height: 40px;
     text-align: center;
-    offset-path: path("M 98,77 Q 325,40 552,143");
+    /* مسار متجاوب بنسب مئوية يضمن بقاء التوك توك داخل الشاشة وعلى الخط دائماً */
+    offset-path: path("M 97.5 77 C 220 50, 430 40, 552.5 143");
     animation: driveTuk 8s infinite ease-in-out;
-    filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.8));
+    filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.9));
+}
+
+/* دعم offset-path المتجاوب للموبايل بالكونتينر النسبية */
+@supports (offset-path: rect(0 0 0 0)) or (-webkit-offset-path: rect(0 0 0 0)) {
+    .moving-tuk {
+        offset-path: path("M 97.5 77 Q 325 40 552.5 143");
+    }
 }
 
 @keyframes driveTuk {
-    /* الذهاب لليمين نحو العميل بوجهه للأمام */
     0% {
         offset-distance: 0%;
         transform: scaleX(-1);
     }
     45% {
-        offset-distance: 95%;
+        offset-distance: 100%;
         transform: scaleX(-1);
     }
-    /* الدوران للعودة بوجهه للأمام نحو اليسار */
     50% {
-        offset-distance: 95%;
+        offset-distance: 100%;
         transform: scaleX(1);
     }
     95% {
@@ -620,8 +621,9 @@ footer p {
     header h1 { font-size: 32px; }
     .nav-links a { display: none; }
     .driver-banner { text-align: center; justify-content: center; }
-    .map-container { height: 180px; }
-    .moving-tuk { font-size: 26px; }
+    .node-icon { width: 32px; height: 32px; font-size: 15px; }
+    .node-label { font-size: 10px; padding: 2px 6px; }
+    .moving-tuk { font-size: 22px; width: 30px; height: 30px; line-height: 30px; top: -15px; left: -15px; }
     .app-screenshot-wrapper { height: 380px; }
 }
 
@@ -661,13 +663,48 @@ footer p {
         <p class="subtitle" id="mapSubtitle">ربط مباشر وسريع بين الراكب والسائق عبر الخريطة الذكية</p>
 
         <div class="map-container">
-            <div class="city-map-bg"></div>
+            <!-- رسم خريطة شوارع حديثة وحقيقية بدون مربعات -->
+            <svg class="city-map-bg" viewBox="0 0 650 220" preserveAspectRatio="none">
+                <!-- مناطق الخريطة والمباني -->
+                <rect x="0" y="0" width="650" height="220" fill="#151a24"/>
+                <rect x="20" y="20" width="120" height="60" rx="8" fill="#1d2331"/>
+                <rect x="160" y="15" width="200" height="40" rx="8" fill="#1d2331"/>
+                <rect x="380" y="20" width="250" height="70" rx="8" fill="#1d2331"/>
+                <rect x="30" y="140" width="180" height="65" rx="8" fill="#1d2331"/>
+                <rect x="240" y="120" width="220" height="85" rx="8" fill="#1d2331"/>
+                <rect x="480" y="130" width="140" height="75" rx="8" fill="#1d2331"/>
+                
+                <!-- مناطق خضراء/حدائق -->
+                <path d="M 170,70 Q 210,60 230,90 T 170,110 Z" fill="#1a2f26" opacity="0.7"/>
+                <path d="M 430,25 Q 460,15 480,35 T 430,45 Z" fill="#1a2f26" opacity="0.7"/>
 
-            <svg class="route-svg" viewBox="0 0 650 220" preserveAspectRatio="none">
-                <path class="route-line-bg" d="M 98,77 Q 325,40 552,143" />
-                <path class="route-line-animated" d="M 98,77 Q 325,40 552,143" />
+                <!-- شوارع حقيقية (رمادي وخلفية طُرق) -->
+                <g stroke="#283144" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- شوارع رئيسية -->
+                    <path d="M 0,100 L 650,100" stroke-width="22"/>
+                    <path d="M 220,0 L 220,220" stroke-width="18"/>
+                    <path d="M 460,0 L 460,220" stroke-width="18"/>
+                    <!-- شوارع فرعية -->
+                    <path d="M 0,35 L 650,35" stroke-width="10"/>
+                    <path d="M 0,185 L 650,185" stroke-width="10"/>
+                    <path d="M 95,0 L 95,220" stroke-width="10"/>
+                </g>
+
+                <!-- خطوط منتصف الشوارع (Dotted Road Markings) -->
+                <g stroke="#3d4961" stroke-width="1.5" stroke-dasharray="8 8">
+                    <path d="M 0,100 L 650,100"/>
+                    <path d="M 220,0 L 220,220"/>
+                    <path d="M 460,0 L 460,220"/>
+                </g>
             </svg>
 
+            <!-- مسار الرحلة الأصلي -->
+            <svg class="route-svg" viewBox="0 0 650 220" preserveAspectRatio="none">
+                <path class="route-line-bg" d="M 97.5,77 Q 325,40 552.5,143" />
+                <path class="route-line-animated" d="M 97.5,77 Q 325,40 552.5,143" />
+            </svg>
+
+            <!-- العميل والسائق -->
             <div class="node node-passenger">
                 <div class="node-icon">👤</div>
                 <div class="node-label" id="passengerLabel">موقع العميل</div>
@@ -678,7 +715,7 @@ footer p {
                 <div class="node-label" id="driverLabel">السائق القريب</div>
             </div>
 
-            <!-- إيموجي التوك توك الأصلي -->
+            <!-- إيموجي التوك توك المتحرك المظبوط تماماً -->
             <div class="moving-tuk">🛺</div>
         </div>
     </div>
