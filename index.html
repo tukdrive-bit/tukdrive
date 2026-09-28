@@ -221,47 +221,23 @@ header p {
     100% { stroke-dashoffset: 0; }
 }
 
-/* التعديل الجذري والنهائي لحركة التوكتوك ذهاباً وإياباً دون انقلاب أو خروج */
+/* حركة التوكتوك الدقيقة والمضمونة ذهاباً وإياباً */
 .tuk-moving-group {
-    animation: tukLoop 8s linear infinite;
+    animation: tukSmoothMove 6s ease-in-out infinite;
 }
 
-@keyframes tukLoop {
-    /* رحلة الذهاب: من السائق (يسار) إلى العميل (يمين) بوجه سليم */
+@keyframes tukSmoothMove {
     0% {
-        offset-path: path('M 120,130 Q 325,10 530,130');
-        offset-distance: 0%;
-        transform: scaleX(1);
+        transform: translate(120px, 130px) scaleX(1);
     }
-    48% {
-        offset-path: path('M 120,130 Q 325,10 530,130');
-        offset-distance: 100%;
-        transform: scaleX(1);
-    }
-    
-    /* نقطة الاستدارة والانتقال لمسار العودة بدقة لتفادي أي خروج عن المسار */
-    49.9% {
-        offset-path: path('M 530,130 Q 325,250 120,130');
-        offset-distance: 0%;
-        transform: scaleX(-1);
-    }
-
-    /* رحلة العودة: من العميل (يمين) إلى السائق (يسار) مع انعكاس الوجه ليصبح باتجاه السائق تماماً */
     50% {
-        offset-path: path('M 530,130 Q 325,250 120,130');
-        offset-distance: 0%;
-        transform: scaleX(-1);
+        transform: translate(530px, 130px) scaleX(1);
     }
-    98% {
-        offset-path: path('M 530,130 Q 325,250 120,130');
-        offset-distance: 100%;
-        transform: scaleX(-1);
+    50.1% {
+        transform: translate(530px, 130px) scaleX(-1);
     }
-    
     100% {
-        offset-path: path('M 120,130 Q 325,10 530,130');
-        offset-distance: 0%;
-        transform: scaleX(1);
+        transform: translate(120px, 130px) scaleX(-1);
     }
 }
 
@@ -641,7 +617,7 @@ footer p {
                     <text id="passengerLabel" y="38" font-size="10" font-weight="bold" fill="#ffcc00" text-anchor="middle">موقع العميل</text>
                 </g>
 
-                <!-- حركة التوكتوك المعدلة: وجهه للعميل في الذهاب، ووجهه للسائق في العودة بدقة -->
+                <!-- التوكتوك المتحرك بالدوران المظبوط وبدون أخطاء -->
                 <g class="tuk-moving-group">
                     <image href="moving-tuktuk.png" x="-22" y="-22" width="44" height="44" />
                 </g>
