@@ -221,10 +221,8 @@ header p {
     100% { stroke-dashoffset: 0; }
 }
 
-/* حل نهائي لمشكلة الانقلاب والخروج عن المسار: استخدام مسار ذهاب وعودة متناسق ومحدد الزوايا */
+/* تعديل حركة الذهاب والعودة وتوجيه واجهة التوكتوك بدقة */
 .tuk-moving-group {
-    offset-path: path('M 120,130 Q 325,10 530,130');
-    offset-rotate: 0deg;
     animation: tukLoop 8s linear infinite;
 }
 
@@ -239,15 +237,20 @@ header p {
         offset-distance: 100%;
         transform: scaleX(1);
     }
+    49.9% {
+        offset-path: path('M 530,130 Q 325,250 120,130');
+        offset-distance: 0%;
+        transform: scaleX(-1);
+    }
     50% {
         offset-path: path('M 530,130 Q 325,250 120,130');
         offset-distance: 0%;
-        transform: scaleX(1);
+        transform: scaleX(-1);
     }
     98% {
         offset-path: path('M 530,130 Q 325,250 120,130');
         offset-distance: 100%;
-        transform: scaleX(1);
+        transform: scaleX(-1);
     }
     100% {
         offset-path: path('M 120,130 Q 325,10 530,130');
@@ -632,7 +635,7 @@ footer p {
                     <text id="passengerLabel" y="38" font-size="10" font-weight="bold" fill="#ffcc00" text-anchor="middle">موقع العميل</text>
                 </g>
 
-                <!-- صورة التوكتوك الحقيقية مضبوطة بزاوية ثابتة ومحاذاة تامة بدون انقلاب -->
+                <!-- حركة التوكتوك بدون انقلاب وبتوجيه سليم للوجهة -->
                 <g class="tuk-moving-group">
                     <image href="moving-tuktuk.png" x="-22" y="-22" width="44" height="44" />
                 </g>
