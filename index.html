@@ -221,13 +221,14 @@ header p {
     100% { stroke-dashoffset: 0; }
 }
 
-/* حركة صورة التوكتوك الحقيقية بمسارين منفصلين لضمان الذهاب والإياب بواجهة صحيحة */
+/* حل نهائي لمشكلة الانقلاب والخروج عن المسار: استخدام مسار ذهاب وعودة متناسق ومحدد الزوايا */
 .tuk-moving-group {
+    offset-path: path('M 120,130 Q 325,10 530,130');
+    offset-rotate: 0deg;
     animation: tukLoop 8s linear infinite;
 }
 
 @keyframes tukLoop {
-    /* رحلة الذهاب من السائق إلى العميل (واجهة صحيحة للأمام) */
     0% {
         offset-path: path('M 120,130 Q 325,10 530,130');
         offset-distance: 0%;
@@ -238,22 +239,15 @@ header p {
         offset-distance: 100%;
         transform: scaleX(1);
     }
-    /* الاستدارة بسلاسة والتحول لمسار العودة */
-    49.9% {
+    50% {
         offset-path: path('M 530,130 Q 325,250 120,130');
         offset-distance: 0%;
         transform: scaleX(1);
     }
-    /* رحلة العودة من العميل إلى السائق (مع انعكاس الأفقي scaleX لتوجيه واجهة الصورة للأمام دائماً) */
-    50% {
-        offset-path: path('M 530,130 Q 325,250 120,130');
-        offset-distance: 0%;
-        transform: scaleX(-1);
-    }
     98% {
         offset-path: path('M 530,130 Q 325,250 120,130');
         offset-distance: 100%;
-        transform: scaleX(-1);
+        transform: scaleX(1);
     }
     100% {
         offset-path: path('M 120,130 Q 325,10 530,130');
@@ -638,7 +632,7 @@ footer p {
                     <text id="passengerLabel" y="38" font-size="10" font-weight="bold" fill="#ffcc00" text-anchor="middle">موقع العميل</text>
                 </g>
 
-                <!-- تم استبدال الإيموجي بصورة التوكتوك الحقيقية moving-tuktuk.png مع ضبط الأبعاد والمحاذاة -->
+                <!-- صورة التوكتوك الحقيقية مضبوطة بزاوية ثابتة ومحاذاة تامة بدون انقلاب -->
                 <g class="tuk-moving-group">
                     <image href="moving-tuktuk.png" x="-22" y="-22" width="44" height="44" />
                 </g>
