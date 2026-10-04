@@ -1,228 +1,158 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>سياسة الخصوصية | TukDrive</title>
-
-<meta name="description" content="سياسة الخصوصية الخاصة بتطبيق TukDrive وكيفية جمع البيانات واستخدامها وحمايتها.">
-
-<meta name="theme-color" content="#ffcc00">
-
-<link rel="icon" type="image/png" href="logo.png">
-<link rel="apple-touch-icon" href="logo.png">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:Arial,sans-serif;
-    background:#f4f4f4;
-    color:#222;
-}
-
-.logo{
-    width:150px;
-    max-width:80%;
-    display:block;
-    margin:0 auto 15px auto;
-}
-
-header{
-    background:#ffcc00;
-    text-align:center;
-    padding:60px 20px;
-}
-
-header h1{
-    font-size:45px;
-    color:#111;
-}
-
-.container{
-    max-width:1000px;
-    margin:auto;
-    padding:30px 20px;
-}
-
-.card{
-    background:white;
-    padding:35px;
-    border-radius:20px;
-    box-shadow:0 0 15px rgba(0,0,0,.08);
-}
-
-.card p,
-.card li{
-    font-size:18px;
-    line-height:1.9;
-}
-
-h2{
-    margin-top:30px;
-    margin-bottom:15px;
-    color:#111;
-}
-
-ul{
-    padding-right:25px;
-}
-
-.email{
-    display:inline-block;
-    background:#fff4b8;
-    padding:15px 20px;
-    border-radius:12px;
-    margin-top:10px;
-    font-weight:bold;
-    color:#000;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:30px;
-    background:#ffcc00;
-    color:black;
-    text-decoration:none;
-    padding:14px 28px;
-    border-radius:12px;
-    font-weight:bold;
-    transition:.3s;
-}
-
-.btn:hover{
-    background:#e6b800;
-    transform:translateY(-2px);
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    margin-top:40px;
-    background:#222;
-    color:white;
-}
-
-@media(max-width:768px){
-
-    .logo{
-        width:120px;
-    }
-
-    header h1{
-        font-size:34px;
-    }
-
-    .card{
-        padding:25px;
-    }
-
-    .card p,
-    .card li{
-        font-size:16px;
-    }
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية - TukDrive</title>
+    <meta name="description" content="سياسة الخصوصية لتطبيقي TukDrive للعملاء والسائقين: ما البيانات التي نجمعها وكيف نستخدمها وكيف تحذف حسابك.">
+    <meta name="theme-color" content="#ffcc00">
+    <link rel="canonical" href="https://www.tukdrive.com/privacy.html">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="legal.css">
 </head>
-
 <body>
+    <nav>
+        <a href="index.html" class="brand"><img src="logo.png" alt=""><span><span class="txt-tuk">Tuk</span><span class="txt-drive">Drive</span></span></a>
+        <div class="nav-actions">
+            <a href="index.html" id="homeLink">الرئيسية</a>
+            <button class="lang-btn" id="langBtn" type="button" onclick="toggleLang()">English</button>
+        </div>
+    </nav>
 
-<header>
+    <main>
+        <!-- ================= العربية ================= -->
+        <div class="lang-block" id="block-ar">
+            <h1>🔐 سياسة الخصوصية</h1>
+            <p class="updated">آخر تحديث: 4 أكتوبر 2026 — تنطبق على تطبيق العميل وتطبيق السائق وموقع tukdrive.com</p>
 
-    <img src="logo.png" alt="TukDrive Logo" class="logo">
+            <div class="card">
+                <h2>1) البيانات التي نجمعها</h2>
+                <p><strong>من العميل:</strong> الاسم، رقم الهاتف، البريد الإلكتروني، بيانات الرحلات (نقطة الالتقاط والوجهة وحالة الرحلة والأجرة المقترحة والنهائية)، التقييمات، رسائل المحادثة مع السائق، الشكاوى وطلبات الدعم، وموقع الجهاز عند طلب رحلة.</p>
+                <p><strong>من السائق:</strong> الاسم، رقم الهاتف، البريد الإلكتروني، بيانات المركبة، بيانات الرحلات والأجرة، التقييمات، رسائل المحادثة مع العملاء، الشكاوى وطلبات الدعم، وموقع الجهاز أثناء تفعيل حالة «متصل».</p>
+                <p><strong>بيانات تقنية:</strong> رمز الجهاز الخاص بالإشعارات (FCM token)، وعنوان IP الذي يظهر تلقائيًا للخدمات الخارجية المذكورة في البند 5.</p>
 
-    <h1>سياسة الخصوصية</h1>
+                <h2>2) استخدام بيانات الموقع</h2>
+                <p><strong>تطبيق العميل:</strong> يُستخدم موقع الجهاز لتحديد نقطة الالتقاط والتحقق من وقوعها داخل منطقة الخدمة وعرض موقع السائق أثناء الرحلة.</p>
+                <p><strong>تطبيق السائق:</strong> عند الضغط على «متصل» يُستخدم موقع الجهاز لمطابقتك مع أقرب طلب ولمشاركة موقعك مع العميل أثناء الرحلة. عند الضغط على «غير متصل» أو تسجيل الخروج يتوقف ذلك.</p>
 
-</header>
+                <h2>3) كيف نستخدم البيانات</h2>
+                <ul>
+                    <li>إنشاء الحساب وتسجيل الدخول والتحقق من نوع الحساب.</li>
+                    <li>إرسال طلب الرحلة لأقرب سائق متاح ومتابعة حالتها حتى انتهائها.</li>
+                    <li>تمكين التفاوض على الأجرة والمحادثة بين العميل والسائق.</li>
+                    <li>حساب التقييمات وإحصائيات الرحلات.</li>
+                    <li>معالجة الدعم والشكاوى وطلبات حذف الحساب.</li>
+                    <li>إرسال الإشعارات المرتبطة بالخدمة.</li>
+                </ul>
+                <p>لا نبيع بياناتك، ولا نستخدمها للإعلانات.</p>
 
-<div class="container">
+                <h2>4) ما يراه الطرف الآخر</h2>
+                <p>يرى السائق بيانات الطلب اللازمة لتنفيذ الرحلة: نقطة الالتقاط والوجهة والأجرة وحالة الرحلة وملاحظات العميل، ويظهر له رقم هاتف العميل ما لم يعطّل العميل هذا الخيار من شاشة «حسابي». ويرى العميل اسم السائق ورقم هاتفه وبيانات مركبته وتقييمه وموقعه المباشر أثناء الرحلة الجارية فقط.</p>
 
-    <div class="card">
+                <h2>5) الخدمات الخارجية</h2>
+                <p>نعتمد على خدمات Google Firebase (المصادقة وقاعدة بيانات Firestore والرسائل والإشعارات). وتُعرض الخرائط عبر خوادم OpenStreetMap ومكتبة OSMDroid، وتستقبل منطقة الخريطة المعروضة وعنوان IP الخاص بالجهاز. وفي تطبيق السائق يُحسب مسار الوصول إلى نقطة الالتقاط عبر خدمة توجيه عامة (OSRM) تستقبل إحداثيات النقطتين وعنوان IP الخاص بالجهاز. تخضع هذه الخدمات لسياسات مزوديها.</p>
 
-        <p>
-            آخر تحديث: 27 سبتمبر 2026
-        </p>
+                <h2>6) الاحتفاظ بالبيانات والحذف</h2>
+                <p>نحتفظ ببياناتك طالما حسابك نشط. يمكنك طلب حذف حسابك وبياناتك كما هو موضح في <a href="delete-account.html">صفحة حذف الحساب</a>. قد نحتفظ ببعض السجلات (مثل الرحلات المكتملة والشكاوى) عند وجود سبب قانوني أو تشغيلي، أو لحل نزاع بين العميل والسائق.</p>
 
-        <h2>مقدمة</h2>
+                <h2>7) الأمان</h2>
+                <p>تُخزَّن البيانات في خدمات Firebase وتُنقل عبر اتصال مشفّر. لا يوجد نظام أمان مضمون بالكامل، لذا احتفظ بسرية بيانات الدخول، ولا تشاركها مع أحد، وسجّل الخروج إذا استخدمت جهازًا ليس لك.</p>
 
-        <p>
-            نحن في TukDrive نحترم خصوصية المستخدمين ونلتزم بحماية البيانات الشخصية التي يتم جمعها أثناء استخدام التطبيق.
-        </p>
+                <h2>8) الصلاحيات التي يطلبها التطبيق</h2>
+                <ul>
+                    <li><strong>الموقع:</strong> لتنفيذ الرحلات كما في البند 2.</li>
+                    <li><strong>الإشعارات:</strong> لتنبيهك بحالة الرحلة والطلبات الجديدة.</li>
+                    <li><strong>الإنترنت:</strong> للاتصال بالخدمات.</li>
+                </ul>
+                <p>يمكنك سحب أي صلاحية من إعدادات الهاتف، لكن بعض الميزات لن تعمل بدونها.</p>
 
-        <h2>المعلومات التي قد نجمعها</h2>
+                <h2>9) الأطفال</h2>
+                <p>الخدمة غير موجّهة للأطفال دون 18 سنة، ولا نجمع بيانات عنهم عن قصد.</p>
 
-        <ul>
-            <li>الاسم.</li>
-            <li>رقم الهاتف.</li>
-            <li>البريد الإلكتروني.</li>
-            <li>الموقع الجغرافي.</li>
-            <li>بيانات الرحلات.</li>
-            <li>التقييمات والمراجعات.</li>
-        </ul>
+                <h2>10) التواصل</h2>
+                <p>لأي استفسار عن الخصوصية أو لطلب الاطلاع على بياناتك أو تصحيحها أو حذفها: <a href="mailto:tukdrive.support@gmail.com">tukdrive.support@gmail.com</a> أو من قسم الدعم داخل التطبيق.</p>
 
-        <h2>كيفية استخدام البيانات</h2>
+                <h2>11) تحديث السياسة</h2>
+                <p>قد نحدّث هذه السياسة عند إضافة ميزات أو تغيير طريقة معالجة البيانات، وسيظهر تاريخ آخر تحديث أعلى الصفحة.</p>
+            </div>
+        </div>
 
-        <ul>
-            <li>إنشاء وإدارة الحسابات.</li>
-            <li>ربط العملاء بالسائقين.</li>
-            <li>توفير خدمات النقل داخل التطبيق.</li>
-            <li>تحسين جودة الخدمة.</li>
-            <li>منع الاحتيال وسوء الاستخدام.</li>
-            <li>تقديم الدعم الفني.</li>
-        </ul>
+        <!-- ================= English ================= -->
+        <div class="lang-block" id="block-en" hidden>
+            <h1>🔐 Privacy Policy</h1>
+            <p class="updated">Last updated: 4 October 2026 — applies to the TukDrive customer app, the driver app and tukdrive.com</p>
 
-        <h2>مشاركة البيانات</h2>
+            <div class="card">
+                <h2>1) Data we collect</h2>
+                <p><strong>From customers:</strong> name, phone number, email, trip data (pickup, destination, trip status, proposed and final fare), ratings, chat messages with the driver, complaints and support requests, and the device location when you request a ride.</p>
+                <p><strong>From drivers:</strong> name, phone number, email, vehicle details, trip and fare data, ratings, chat messages with customers, complaints and support requests, and the device location while you are set to "online".</p>
+                <p><strong>Technical data:</strong> the device push-notification token (FCM token), and the IP address that is automatically visible to the external services listed in section 5.</p>
 
-        <p>
-            لا نقوم ببيع بيانات المستخدمين لأي طرف ثالث. وقد تتم مشاركة بعض البيانات فقط عند الحاجة لتشغيل الخدمة أو عند وجود التزام قانوني بذلك.
-        </p>
+                <h2>2) How we use location</h2>
+                <p><strong>Customer app:</strong> the device location is used to set the pickup point, check it falls inside a service area, and show the driver's position during the ride.</p>
+                <p><strong>Driver app:</strong> when you tap "online", the device location is used to match you with the nearest request and to share your position with the customer during the ride. It stops when you go "offline" or sign out.</p>
 
-        <h2>حماية البيانات</h2>
+                <h2>3) How we use data</h2>
+                <ul>
+                    <li>Create accounts, sign in and verify the account type.</li>
+                    <li>Send ride requests to the nearest available driver and follow the trip to the end.</li>
+                    <li>Enable fare negotiation and chat between customer and driver.</li>
+                    <li>Calculate ratings and trip statistics.</li>
+                    <li>Handle support, complaints and account deletion requests.</li>
+                    <li>Send service-related notifications.</li>
+                </ul>
+                <p>We do not sell your data and we do not use it for advertising.</p>
 
-        <p>
-            نتخذ إجراءات تقنية وإدارية مناسبة للمساعدة في حماية بيانات المستخدمين من الوصول غير المصرح به أو الاستخدام غير القانوني.
-        </p>
+                <h2>4) What the other party sees</h2>
+                <p>The driver sees the request details needed for the trip: pickup, destination, fare, trip status and customer notes, plus the customer's phone number unless the customer turns this off in "My account". The customer sees the driver's name, phone number, vehicle details, rating and live location during the active trip only.</p>
 
-        <h2>الاحتفاظ بالبيانات</h2>
+                <h2>5) External services</h2>
+                <p>We rely on Google Firebase (authentication, Firestore database, messaging and notifications). Maps are shown through OpenStreetMap tile servers and the OSMDroid library, which receive the map area being viewed and the device IP address. In the driver app, the route to the pickup point is calculated with a public routing service (OSRM), which receives the coordinates of the two points and the device IP address. These services are governed by their providers' policies.</p>
 
-        <p>
-            يتم الاحتفاظ بالبيانات طالما كان الحساب نشطاً أو عند الحاجة لتقديم الخدمة والامتثال للمتطلبات القانونية.
-        </p>
+                <h2>6) Retention and deletion</h2>
+                <p>We keep your data while your account is active. You can request deletion of your account and data as described on the <a href="delete-account.html">account deletion page</a>. We may keep some records (such as completed trips and complaints) where there is a legal or operational reason, or to resolve a dispute between a customer and a driver.</p>
 
-        <h2>حذف الحساب</h2>
+                <h2>7) Security</h2>
+                <p>Data is stored in Firebase services and sent over encrypted connections. No system is completely secure, so keep your login details private, do not share them, and sign out if you use a device that is not yours.</p>
 
-        <p>
-            يمكن للمستخدم طلب حذف حسابه من خلال صفحة حذف الحساب أو التواصل معنا مباشرة عبر البريد الإلكتروني.
-        </p>
+                <h2>8) Permissions the apps request</h2>
+                <ul>
+                    <li><strong>Location:</strong> to run rides as described in section 2.</li>
+                    <li><strong>Notifications:</strong> to alert you about trip status and new requests.</li>
+                    <li><strong>Internet:</strong> to connect to the services.</li>
+                </ul>
+                <p>You can withdraw any permission in your phone settings, but some features will not work without it.</p>
 
-        <h2>التواصل معنا</h2>
+                <h2>9) Children</h2>
+                <p>The service is not directed to children under 18 and we do not knowingly collect their data.</p>
 
-        <p class="email">
-            tukdrive.support@gmail.com
-        </p>
+                <h2>10) Contact</h2>
+                <p>For any privacy question, or to request access to, correction of or deletion of your data: <a href="mailto:tukdrive.support@gmail.com">tukdrive.support@gmail.com</a> or the support section inside the app.</p>
 
-        <br>
+                <h2>11) Policy updates</h2>
+                <p>We may update this policy when we add features or change how data is processed. The date of the last update is shown at the top of the page.</p>
+            </div>
+        </div>
+    </main>
 
-        <a href="index.html" class="btn">
-            العودة إلى الصفحة الرئيسية
-        </a>
+    <footer>© 2026 TukDrive — <a href="index.html" id="footHome">الرئيسية</a></footer>
 
-    </div>
-
-</div>
-
-<footer>
-    © 2026 TukDrive. All Rights Reserved.
-</footer>
-
+    <script>
+        function setLang(l) {
+            var ar = l === 'ar';
+            document.documentElement.lang = l;
+            document.documentElement.dir = ar ? 'rtl' : 'ltr';
+            document.getElementById('block-ar').hidden = !ar;
+            document.getElementById('block-en').hidden = ar;
+            document.getElementById('langBtn').textContent = ar ? 'English' : 'العربية';
+            document.getElementById('homeLink').textContent = ar ? 'الرئيسية' : 'Home';
+            document.getElementById('footHome').textContent = ar ? 'الرئيسية' : 'Home';
+            document.title = ar ? 'سياسة الخصوصية - TukDrive' : 'Privacy Policy - TukDrive';
+            try { localStorage.setItem('tukdrive_lang', l); } catch (e) {}
+        }
+        function toggleLang() { setLang(document.documentElement.lang === 'ar' ? 'en' : 'ar'); }
+        try { if (localStorage.getItem('tukdrive_lang') === 'en') setLang('en'); } catch (e) {}
+    </script>
 </body>
 </html>
