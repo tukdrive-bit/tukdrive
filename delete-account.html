@@ -1,212 +1,104 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>حذف الحساب | TukDrive</title>
-
-<meta name="description" content="صفحة حذف الحساب الخاصة بتطبيق TukDrive وشرح خطوات حذف الحساب والبيانات المرتبطة به.">
-
-<meta name="theme-color" content="#ffcc00">
-
-<link rel="icon" type="image/png" href="logo.png">
-<link rel="apple-touch-icon" href="logo.png">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:Arial,sans-serif;
-    background:#f4f4f4;
-    color:#222;
-}
-
-.logo{
-    width:150px;
-    max-width:80%;
-    display:block;
-    margin:0 auto 15px auto;
-}
-
-header{
-    background:#ffcc00;
-    text-align:center;
-    padding:60px 20px;
-}
-
-header h1{
-    font-size:45px;
-    color:#111;
-}
-
-.container{
-    max-width:1000px;
-    margin:auto;
-    padding:30px 20px;
-}
-
-.card{
-    background:white;
-    padding:35px;
-    border-radius:20px;
-    box-shadow:0 0 15px rgba(0,0,0,.08);
-}
-
-.card p,
-.card li{
-    font-size:18px;
-    line-height:1.9;
-}
-
-h2{
-    margin-top:25px;
-    margin-bottom:15px;
-    color:#111;
-}
-
-ol,
-ul{
-    padding-right:25px;
-}
-
-.email{
-    display:inline-block;
-    background:#fff4b8;
-    padding:15px 20px;
-    border-radius:12px;
-    margin-top:10px;
-    font-weight:bold;
-    color:#000;
-}
-
-.notice{
-    background:#fff8d9;
-    border-right:5px solid #ffcc00;
-    padding:18px;
-    margin-top:20px;
-    border-radius:12px;
-    line-height:1.8;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:30px;
-    background:#ffcc00;
-    color:black;
-    text-decoration:none;
-    padding:14px 28px;
-    border-radius:12px;
-    font-weight:bold;
-    transition:.3s;
-}
-
-.btn:hover{
-    background:#e6b800;
-    transform:translateY(-2px);
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    margin-top:40px;
-    background:#222;
-    color:white;
-}
-
-@media(max-width:768px){
-
-    .logo{
-        width:120px;
-    }
-
-    header h1{
-        font-size:34px;
-    }
-
-    .card{
-        padding:25px;
-    }
-
-    .card p,
-    .card li{
-        font-size:16px;
-    }
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حذف الحساب - TukDrive</title>
+    <meta name="description" content="كيفية طلب حذف حسابك وبياناتك في تطبيقي TukDrive للعملاء والسائقين.">
+    <meta name="theme-color" content="#ffcc00">
+    <link rel="canonical" href="https://www.tukdrive.com/delete-account.html">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="legal.css">
 </head>
-
 <body>
+    <nav>
+        <a href="index.html" class="brand"><img src="logo.png" alt=""><span><span class="txt-tuk">Tuk</span><span class="txt-drive">Drive</span></span></a>
+        <div class="nav-actions">
+            <a href="index.html" id="homeLink">الرئيسية</a>
+            <button class="lang-btn" id="langBtn" type="button" onclick="toggleLang()">English</button>
+        </div>
+    </nav>
 
-<header>
+    <main>
+        <!-- ================= العربية ================= -->
+        <div class="lang-block" id="block-ar">
+            <h1>🗑️ حذف الحساب</h1>
+            <p class="updated">آخر تحديث: 4 أكتوبر 2026</p>
 
-    <img src="logo.png" alt="TukDrive Logo" class="logo">
+            <div class="card">
+                <h2>للعملاء — من داخل التطبيق</h2>
+                <ol>
+                    <li>افتح تطبيق TukDrive وسجّل الدخول.</li>
+                    <li>ادخل على قائمة <strong>«حسابي»</strong>.</li>
+                    <li>اضغط <strong>«طلب حذف الحساب»</strong> ثم <strong>«إرسال الطلب»</strong>.</li>
+                </ol>
 
-    <h1>حذف الحساب</h1>
+                <h2>للسائقين، ولمن لا يستطيع فتح التطبيق</h2>
+                <p>أرسل لنا رسالة من البريد الإلكتروني المسجّل في حسابك إلى العنوان التالي، واكتب في الموضوع «طلب حذف حساب» مع ذكر اسمك ورقم هاتفك المسجّل. يمكن للسائق أيضًا إرسال الطلب من قسم الدعم داخل تطبيق السائق.</p>
+                <a class="mail-btn" href="mailto:tukdrive.support@gmail.com?subject=%D8%B7%D9%84%D8%A8%20%D8%AD%D8%B0%D9%81%20%D8%AD%D8%B3%D8%A7%D8%A8">tukdrive.support@gmail.com</a>
 
-</header>
+                <h2>ماذا يحدث بعد الطلب؟</h2>
+                <ul>
+                    <li>تراجع الإدارة الطلب وقد تتواصل معك للتأكد من هويتك قبل التنفيذ.</li>
+                    <li>يُحذف حسابك وبياناتك الشخصية المرتبطة به: الاسم والهاتف والبريد وبيانات المركبة (للسائق) ورمز الإشعارات.</li>
+                    <li>قد نحتفظ ببعض السجلات عند وجود سبب قانوني أو تشغيلي، مثل الرحلات المكتملة والشكاوى وطلبات الدعم، أو لحل نزاع قائم بين العميل والسائق.</li>
+                    <li>بعد الحذف لا يمكنك استرجاع الحساب، ويمكنك إنشاء حساب جديد إن أردت.</li>
+                </ul>
 
-<div class="container">
-
-    <div class="card">
-
-        <p>
-            إذا كنت ترغب في حذف حسابك وبياناتك المرتبطة بتطبيق TukDrive، يمكنك تقديم طلب حذف الحساب عبر البريد الإلكتروني التالي:
-        </p>
-
-        <p class="email">
-            tukdrive.support@gmail.com
-        </p>
-
-        <h2>خطوات طلب حذف الحساب</h2>
-
-        <ol>
-            <li>أرسل رسالة إلى البريد الإلكتروني الموضح أعلاه.</li>
-            <li>اكتب عنوان الرسالة: طلب حذف حساب TukDrive.</li>
-            <li>اذكر رقم الهاتف أو البريد الإلكتروني المرتبط بالحساب.</li>
-            <li>سيتم التحقق من ملكية الحساب قبل تنفيذ الطلب.</li>
-            <li>ستتلقى إشعاراً عند اكتمال عملية الحذف.</li>
-        </ol>
-
-        <h2>البيانات التي يتم حذفها</h2>
-
-        <ul>
-            <li>بيانات الملف الشخصي.</li>
-            <li>بيانات الحساب.</li>
-            <li>سجل استخدام التطبيق المرتبط بالحساب.</li>
-            <li>البيانات الشخصية المخزنة داخل التطبيق.</li>
-        </ul>
-
-        <div class="notice">
-            قد يتم الاحتفاظ ببعض السجلات لفترة محدودة إذا كان ذلك مطلوباً بموجب القوانين المعمول بها أو لأغراض الأمان ومنع الاحتيال.
+                <div class="note">لا يمكن تنفيذ الحذف أثناء وجود رحلة جارية. أنهِ الرحلة أو ألغِها أولًا.</div>
+                <p style="margin-top:14px">للاطلاع على تفاصيل البيانات التي نجمعها راجع <a href="privacy.html">سياسة الخصوصية</a>.</p>
+            </div>
         </div>
 
-        <h2>مدة تنفيذ الطلب</h2>
+        <!-- ================= English ================= -->
+        <div class="lang-block" id="block-en" hidden>
+            <h1>🗑️ Delete Account</h1>
+            <p class="updated">Last updated: 4 October 2026</p>
 
-        <p>
-            يتم تنفيذ طلبات حذف الحساب خلال مدة لا تتجاوز 30 يوماً من تاريخ استلام الطلب والتحقق من ملكية الحساب.
-        </p>
+            <div class="card">
+                <h2>Customers — inside the app</h2>
+                <ol>
+                    <li>Open the TukDrive app and sign in.</li>
+                    <li>Go to the <strong>"My account"</strong> menu.</li>
+                    <li>Tap <strong>"Request account deletion"</strong>, then <strong>"Send request"</strong>.</li>
+                </ol>
 
-        <a href="index.html" class="btn">
-            العودة إلى الصفحة الرئيسية
-        </a>
+                <h2>Drivers, and anyone who cannot open the app</h2>
+                <p>Email us from the address registered on your account, with the subject "Account deletion request", and include your name and registered phone number. Drivers can also send the request from the support section inside the driver app.</p>
+                <a class="mail-btn" href="mailto:tukdrive.support@gmail.com?subject=Account%20deletion%20request">tukdrive.support@gmail.com</a>
 
-    </div>
+                <h2>What happens after the request?</h2>
+                <ul>
+                    <li>Our team reviews the request and may contact you to confirm your identity before acting.</li>
+                    <li>Your account and the personal data linked to it are deleted: name, phone, email, vehicle details (drivers) and the notification token.</li>
+                    <li>We may keep some records where there is a legal or operational reason, such as completed trips, complaints and support requests, or to resolve an open dispute between a customer and a driver.</li>
+                    <li>Once deleted, the account cannot be restored. You can create a new one if you wish.</li>
+                </ul>
 
-</div>
+                <div class="note">Deletion cannot be carried out while a trip is in progress. Finish or cancel the trip first.</div>
+                <p style="margin-top:14px">For details of the data we collect, see the <a href="privacy.html">Privacy Policy</a>.</p>
+            </div>
+        </div>
+    </main>
 
-<footer>
-    © 2026 TukDrive. All Rights Reserved.
-</footer>
+    <footer>© 2026 TukDrive — <a href="index.html" id="footHome">الرئيسية</a></footer>
 
+    <script>
+        function setLang(l) {
+            var ar = l === 'ar';
+            document.documentElement.lang = l;
+            document.documentElement.dir = ar ? 'rtl' : 'ltr';
+            document.getElementById('block-ar').hidden = !ar;
+            document.getElementById('block-en').hidden = ar;
+            document.getElementById('langBtn').textContent = ar ? 'English' : 'العربية';
+            document.getElementById('homeLink').textContent = ar ? 'الرئيسية' : 'Home';
+            document.getElementById('footHome').textContent = ar ? 'الرئيسية' : 'Home';
+            document.title = ar ? 'حذف الحساب - TukDrive' : 'Delete Account - TukDrive';
+            try { localStorage.setItem('tukdrive_lang', l); } catch (e) {}
+        }
+        function toggleLang() { setLang(document.documentElement.lang === 'ar' ? 'en' : 'ar'); }
+        try { if (localStorage.getItem('tukdrive_lang') === 'en') setLang('en'); } catch (e) {}
+    </script>
 </body>
 </html>
